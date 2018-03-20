@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/20/html + css/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Ctrl+shift+D ==&amp;gt; 复制本行     Ctrl+shift+K ==》 删除本行         Tab=》缩进    Shift+Tab ==》反缩进    Shift+Tab ==&amp;gt; 切换    text-indent:2em; 首行空两个汉字的格，单位比较奇怪，叫做em，em就是汉字的一个宽度   ！！！     不要用# （致命） 会跳到页面的顶端 如果是要">
-<meta property="og:updated_time" content="2018-03-20T04:34:13.211Z">
+<meta property="og:updated_time" content="2018-03-20T05:33:18.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML + CSS">
 <meta name="twitter:description" content="Ctrl+shift+D ==&amp;gt; 复制本行     Ctrl+shift+K ==》 删除本行         Tab=》缩进    Shift+Tab ==》反缩进    Shift+Tab ==&amp;gt; 切换    text-indent:2em; 首行空两个汉字的格，单位比较奇怪，叫做em，em就是汉字的一个宽度   ！！！     不要用# （致命） 会跳到页面的顶端 如果是要">
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -101,8 +101,7 @@
 <p>— 如果都有定位，他们默认的层级 z-index=0   最后一个定位更靠上 层级更高</p>
 <p>   <strong>我们提高层级是提高父级的层级</strong></p>
 <p>—！！！ 我们很多li进行并排，加了边框之后，会掉下来，但是他的父辈给了足够的宽度，解决办法：</p>
-<pre><code>我们给这些li加一个盒子给包起来，给这个盒子足够的宽让他能够并列，比如给ul一个足够的宽，然后让ul的父辈 overflow:hidden; 就隐藏看不见了
-</code></pre><p>  BFC : 创建一个区域，这个区域与外部毫不相干  （就是脱标之后的区域）</p>
+<h4 id="我们给这些li加一个盒子给包起来，给这个盒子足够的宽让他能够并列，比如给ul一个足够的宽，然后让ul的父辈"><a href="#我们给这些li加一个盒子给包起来，给这个盒子足够的宽让他能够并列，比如给ul一个足够的宽，然后让ul的父辈" class="headerlink" title="我们给这些li加一个盒子给包起来，给这个盒子足够的宽让他能够并列，比如给ul一个足够的宽，然后让ul的父辈"></a>我们给这些li加一个盒子给包起来，给这个盒子足够的宽让他能够并列，比如给ul一个足够的宽，然后让ul的父辈</h4><h4 id="overflow-hidden-就隐藏看不见了"><a href="#overflow-hidden-就隐藏看不见了" class="headerlink" title="overflow:hidden; 就隐藏看不见了"></a>overflow:hidden; 就隐藏看不见了</h4><p>  BFC : 创建一个区域，这个区域与外部毫不相干  （就是脱标之后的区域）</p>
 <p>  哪些元素会生成BFC: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> (1)根元素html  </span><br><span class="line"> (2)float属性不为no浮动框   </span><br><span class="line"> (3)position为absolute 或fixed </span><br><span class="line"> (4)display为inline-block  </span><br><span class="line"> (5)overflow为不是visible的边框  </span><br><span class="line">（6）触发IE的hasLayout特性</span><br></pre></td></tr></table></figure>
 <p>  BFC的作用： 清除浮动问题    解决margin合并问题     多栏布局</p>
@@ -347,7 +346,7 @@ text-decoration:none;        font-style:none;     text-decoration:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/20/html + css/" data-id="cjez7tlcx0007fwuqdutv8p89" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/20/html + css/" data-id="cjez7tlcx0007fwuqdutv8p89" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -357,7 +356,7 @@ text-decoration:none;        font-style:none;     text-decoration:none;
 <nav id="article-nav">
   
     <a href="/2018/03/20/DOM + BOM/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           DOM + BOM
@@ -367,7 +366,7 @@ text-decoration:none;        font-style:none;     text-decoration:none;
   
   
     <a href="/2018/03/20/PHP_01.V5.0/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">第一天 服务端开发基础</div>
     </a>
   
@@ -400,7 +399,7 @@ text-decoration:none;        font-style:none;     text-decoration:none;
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -437,7 +436,7 @@ text-decoration:none;        font-style:none;     text-decoration:none;
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
