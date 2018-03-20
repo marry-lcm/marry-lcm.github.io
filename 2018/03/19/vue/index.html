@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue + ES6 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装时报错，一般是网络问题!!!!!     具体学习   http://jspang.com/2017/04/10/vue-cli/安装一个服务环境，通过cmd命令下载  找到项目所在的路径后  123cnpm install -g live-serverlive-server  自己将打开一个页面 前端项目都需要进行初始化，得到 package.json文件   npm init  后面的选项">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue + ES6">
+<meta property="og:url" content="http://yoursite.com/2018/03/19/vue/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="安装时报错，一般是网络问题!!!!!     具体学习   http://jspang.com/2017/04/10/vue-cli/安装一个服务环境，通过cmd命令下载  找到项目所在的路径后  123cnpm install -g live-serverlive-server  自己将打开一个页面 前端项目都需要进行初始化，得到 package.json文件   npm init  后面的选项">
+<meta property="og:updated_time" content="2018-03-20T03:52:47.728Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue + ES6">
+<meta name="twitter:description" content="安装时报错，一般是网络问题!!!!!     具体学习   http://jspang.com/2017/04/10/vue-cli/安装一个服务环境，通过cmd命令下载  找到项目所在的路径后  123cnpm install -g live-serverlive-server  自己将打开一个页面 前端项目都需要进行初始化，得到 package.json文件   npm init  后面的选项">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/19/vue/" class="article-date">
+  <time datetime="2018-03-19T13:14:19.768Z" itemprop="datePublished">2018-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue + ES6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装时报错，一般是网络问题!!!!!     具体学习   <a href="http://jspang.com/2017/04/10/vue-cli/" target="_blank" rel="noopener">http://jspang.com/2017/04/10/vue-cli/</a><br>安装一个服务环境，通过cmd命令下载</p>
+<p> 找到项目所在的路径后 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g live-server</span><br><span class="line"></span><br><span class="line">live-server</span><br></pre></td></tr></table></figure>
+<p> 自己将打开一个页面</p>
+<p>前端项目都需要进行初始化，得到 package.json文件   npm init  后面的选项自己选填，不写的直接回车即可   npm init -y 一切默认-不用回车</p>
+<p>vue-cli 构建项目开发环境，获取项目模板——-Vue-cli是vue官方出品的快速构建单页应用的脚手架</p>
+<p>1.在cmd下载vue-cli   找到新建项目的目录</p>
+<pre><code>cnpm install vue-cli -g
+</code></pre><ol>
+<li>初始化及构建项目目录  </li>
+</ol>
+<pre><code>vue init webpack vuecliTest   (后面那个是项目的名字，前面那个webpack默认)
+project name: 自己写
+project description :可以回车不写
+Author:自己写
+Vue bulid：回车
+install vue-router? y
+后面的根据情况 y/n  基本上 n
+可以根据上面的提示： cd vuecliTest
+npm install
+</code></pre><p><strong>！！！！！！      npm run dev   如果能在浏览器中正常打开页面，说明安装正确   会告诉你打开的页面地址</strong></p>
+<p> 3.如果项目已经完成，需要上传到服务器上，需要进行打包</p>
+<pre><code>npm run build           vue-cli会自动进行项目发布打包
+</code></pre><p>在执行完npm run build命令后，在你的项目根目录生成了dist文件夹，这个文件夹里边就是我们要传到服务器上的文件。</p>
+<p> dist文件夹下目录包括：</p>
+<p>index.html 主页文件:因为我们开发的是单页web应用，所以说一般只有一个html文件。</p>
+<p>static 静态资源文件夹：里边js、CSS和一些图片。</p>
+<h4 id="———————–Vue-cli模板文件介绍———————————————————————–"><a href="#———————–Vue-cli模板文件介绍———————————————————————–" class="headerlink" title="———————–Vue-cli模板文件介绍———————————————————————–"></a>———————–Vue-cli模板文件介绍———————————————————————–</h4><ol>
+<li><p>components  —- vue公共组件</p>
+<p>App.vue  ——–  页面入口文件</p>
+<p>main.js ———- 程序入口文件，加载各种公共组件</p>
+<p>static ———– 静态文件，比如一些图片，json数据等  本地下载的fonticon</p>
+<p>.babelrc ———- ES6语法编译配置</p>
+<p>.editorconfig — —- 定义代码格式  不同公司不同要求</p>
+<p>README.md  ————  项目说明</p>
+<p>index.html ———— 入口页面</p>
+<p>package.json ———  项目基本信息</p>
+<p>​</p>
+</li>
+</ol>
+<h4 id="——————–-vue-router-对模板的应用-———————————————————"><a href="#——————–-vue-router-对模板的应用-———————————————————" class="headerlink" title="——————– vue-router 对模板的应用 ———————————————————"></a>——————– vue-router 对模板的应用 ———————————————————</h4><ol>
+<li>一个.vue组件就是一个页面—-一个页面就要在路由配置 index.js 进行配置 path 就是你点击链接的时候，</li>
+</ol>
+<p>​        进入一个新页面的地址，每配置一个路由就要引入一个组件 import XX from ‘.vue组件的相对地址’</p>
+<ol>
+<li><p>APP.vue文件相当于一个页面的整体布局，可以定义公共组件，无论哪个页面都会有，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
+<p>就是点击不同链接，那个部分显示每个组件自己的内容，变化的区域，APP.vue文件可以实现，单页面多路由，即多个<router-view name=""></router-view>  如果有三个，可以写样式让他们放在固定的位置上，其中有一个<router-view name=""></router-view> 不用写name属性，是默认的，其他的都必须写。</p>
+<p>然后配置路由：        </p>
+<pre><code>{ 
+   path: &apos;/&apos;,
+    components: {
+            default:Hello,
+            left:Hi1,
+            right:Hi2
+     }
+  }
+</code></pre><p> components 的写法，与我们前面的name属性进行对应，后面是对应位置显示的组件内容。</p>
+</li>
+<li><p>每个页面的公用样式写在APP.vue页面的style里面，不共用的写在自己组件下面 加scoped</p>
+<p>   每个页面都可以有链接 <router-link to="/Home"></router-link> to后面跟你要跳转页面组件的地址</p>
+<p>   to也可以进行传参 <router-link :to="{name:‘hi1’,params:{username:'jspang'}}">liu</router-link></p>
+<p>   to是进行绑定的，name和你要跳转页面组件的name相对应，后面是传递的参数，你可以在你跳转页面 </p>
+<p>   用接收</p>
+</li>
+<li><p>子路由： </p>
+<p>   （1）在任何页面都可以有子路由，就是在这个页面，有一个固定的位置留给了你的子页面，你需要写</p>
+<pre><code>&lt;router-view&gt;&lt;/router-view&gt;给位置留出来，然后在本页面点击不同链接，可以在你留的位置显示你的子页面的内容
+</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/hi/hi1&quot;&gt;-Hi页面1&lt;/router-link&gt; </span><br><span class="line">&lt;router-link to=&quot;/hi/hi2&quot;&gt;-Hi页面2&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>（2）配置路由： import Hi from &apos;@/components/Hi&apos; 
+               import Hi1 from &apos;@/components/Hi1&apos; 
+               import Hi2 from &apos;@/components/Hi2&apos;
+
+             {
+               path:&apos;/hi&apos;,
+               component:Hi,
+               children:[
+                  {path:&apos;hi1&apos;,component:Hi1},
+                  {path:&apos;hi2&apos;,component:Hi2}
+               ]
+              }
+</code></pre><p>  （3）可以在你的子页面进行内容的编写即可</p>
+</li>
+<li><p>vue-router 利用url传递参数，比如说页面有多条新闻点击不同的标题会进入不同的页面，这时候点击的标题</p>
+<p> 对应的地址栏的地址不同，常用的是这个页面的地址加新闻的id 和 新闻的title  每条新闻都不一样</p>
+</li>
+</ol>
+<pre><code> &lt;router-link to=&quot;/params/198/jspang website is very good&quot;&gt;params&lt;/router-link&gt;  链接的写法
+
+配置路由： {
+           path:&apos;/params/:newsId/:newsTitle&apos;,
+           component:Params
+           }
+这是你要跳转的页面 用：进行绑定参数   在链接里面进行给值，就可以传递到地址栏里面了
+
+如果newsId只能是数字，支持正则  path:&apos;/params/:newsId（\\d+）/:newsTitle&apos;,
+</code></pre><p> <strong>！！~~  如果现在是很多条新闻，我们用v-for进行循环 我们用to怎么进行传递参数？？？？？</strong></p>
+<pre><code>&lt;router-link class=&quot;title link&quot; :to=&quot;item.url&quot;&gt;{{item.title}}&lt;/router-link&gt;
+</code></pre><p>我们在data数据里面定义了一个数组，遍历这个数组里面的json 进行取值就可以了  用to进行绑定</p>
+<p>每个json定义不同的 ‘url’:’/PE/456/qwe’  后面的传递的参数，，我们在跳转的页面路由进行传参的配置就可以了</p>
+<pre><code>path:&apos;/PE/:newsId（\\d+）/:newsTitle&apos;
+</code></pre><ol>
+<li><p>不同的链接，点击后希望可以跳转到同一个页面，就是路由的重定向：redirect  </p>
+<p>当然跳转后地址栏的地址是redirect后面的地址，就是相当于给path的地址变成了 redirect后面的地址</p>
+<p>（1）不传参数时：</p>
+<pre><code>            {   
+              path:&apos;/goback&apos;,
+               redirect:&apos;/&apos;
+             }
+就是链接&lt;router-link to=&quot;/goback&quot;&gt;&lt;/router-link&gt; 进入的是goback这个组件，但是实际进入的是主页，地址栏的地址也是首页的地址
+</code></pre><p>（2）传递参数时：</p>
+<pre><code>  {
+      path:&apos;/params/:newsId(\\d+)/:newsTitle&apos;,
+      component:Params
+  },{
+      path:&apos;/hello/:newsId(\\d+)/:newsTitle&apos;,
+      redirect:&apos;/params/:newsId(\\d+)/:newsTitle&apos;
+    }      
+&lt;router-link to=&quot;/hello/123/jspang&quot;&gt;&lt;/router-link&gt;
+</code></pre></li>
+</ol>
+<p>我们只要把传递参数模块设置成一样的就行了 :newsId(\d+)/:newsTitle  （三个地方都一样）这样redirect后面的内容就和 最上面那个path内容一模一样了</p>
+<p>出现一个问题：这样的话，原来那个页面params 在链接的to属性也要进行传参数，不然不能出现页面（也不报错）</p>
+<ol>
+<li><p>使用alias别名的形式，我们也可以实现类似重定向的效果</p>
+<p>redirect：仔细观察URL，redirect是直接改变了url的值，把url变成了真实的path路径。</p>
+<p>​                 URL地址就是 – ———和那个的页面有相同的地址</p>
+<p>alias：URL路径没有别改变，这种情况更友好，让用户知道自己访问的路径，只是改变了<router-view>中的内容</router-view></p>
+<p> URL地址就是 链接里面的to后面的地址</p>
+</li>
+</ol>
+<pre><code>{
+ path: &apos;/hi1&apos;,
+ component: Hi1,
+ alias:&apos;/jspang&apos;
+}
+
+&lt;router-link to=&quot;/jspang&quot;&gt;jspang&lt;/router-link&gt;       就可以进入和Hi1相同的那个页面了
+</code></pre><p><strong>别名请不要用在path为’/’中，就是在主页中设置别名是不起作用的！！！！！！！—-  我的首页起作用</strong></p>
+<ol>
+<li>路由的过渡动画：transition 标签— 可以在页面切换时我们加入一些动画效果</li>
+</ol>
+<p>需要在<router-view>标签的外部添加<transition>标签，标签还需要一个name属性</transition></router-view></p>
+<pre><code>&lt;transition name=&quot;fade&quot; mode=&quot;out-in&quot;&gt;
+     &lt;router-view &gt;&lt;/router-view&gt;
+&lt;/transition&gt;
+
+  fade-enter:进入过渡的开始状态，元素被插入时生效，只应用一帧后立刻删除。
+  fade-enter-active:进入过渡的结束状态，元素被插入时就生效，在过渡过程完成后移除。
+  fade-leave:离开过渡的开始状态，元素被删除时触发，只应用一帧后立刻删除。
+  fade-leave-active:离开过渡的结束状态，元素被删除时生效，离开过渡完成后被删除 
+
+ 制作一个简单的透明度效果：
+                       .fade-enter {
+                            opacity:0;
+                        }
+                       .fade-leave{
+                            opacity:1;
+                        }
+                       .fade-enter-active{
+                            transition:opacity .5s;
+                        }
+                       .fade-leave-active{
+                             opacity:0;
+                             transition:opacity .5s;
+                        }
+</code></pre><p>  默认的mode模式in-out模式</p>
+<p>in-out:新元素先进入过渡，完成之后当前元素过渡离开。</p>
+<p>out-in:当前元素先进行过渡离开，离开完成后新元素过渡进入 —-想做出实用酷炫的过渡效果，你需要有较强的动画制作能力</p>
+<ol>
+<li><p>路由的属性中还有一个mode   我们可以设置为  mode:’history’,</p>
+<p>histroy:当你使用 history 模式时，URL 就像正常的 url，例如 <a href="http://jsapng.com/lms/，也好看！" target="_blank" rel="noopener">http://jsapng.com/lms/，也好看！</a><br>hash:默认’hash’值，但是hash看起来就像无意义的字符排列，不太好看也不符合我们一般的网址浏览习惯。</p>
+</li>
+<li><p>404页面的设置  — 就是配置路由，写一个404组件  编写一个漂亮的404出错页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path:&apos;*&apos;,</span><br><span class="line">  component:Error</span><br><span class="line">&#125;</span><br><span class="line"> import Error from &apos;@/components/page/Error&apos;</span><br></pre></td></tr></table></figure>
+<p>当我们在地址栏输入错误的地址时就会出现这个404页面</p>
+</li>
+<li><p>路由中的钩子</p>
+<pre><code>（1）路由配置文件中的钩子函数  （只有这一个钩子函数）
+</code></pre><p> {<br>  path:’/params/:newsId(\d+)/:newsTitle’,<br>  component:Params,<br>  beforeEnter:(to,from,next)=&gt;{</p>
+<pre><code>console.log(&apos;我进入了params模板&apos;);
+console.log(to);  //to:路由将要跳转的路径信息，信息是包含在对像里边的
+console.log(from); //from:路径跳转前的路径信息，也是一个对象的形式
+next();            //next:路由的控制参数，常用的有next(true)和next(false)
+</code></pre><p> },<br>(2) 写在模板中的钩子函数 ( 有两个函数)  —  可以监控到路由的进入和路由的离开，也可以轻易的读出to和from的值。</p>
+<p>beforeRouteEnter：在路由进入前的钩子函数。</p>
+<p>beforeRouteLeave：在路由离开前的钩子函数</p>
+<p>data (){<br> return {</p>
+<pre><code>msg: &apos;params page&apos;
+}
+</code></pre><p>},<br>beforeRouteEnter:(to,from,next)=&gt;{<br>  console.log(“准备进入路由模板”);<br>  next();<br> },<br>beforeRouteLeave: (to, from, next) =&gt; {<br>  console.log(“准备离开路由模板”);<br>  next();<br> }</p>
+<ol>
+<li>编程式导航 — 可以用其他标签代替链接，进行  前进–后退 或者直接进入指定的页面</li>
+</ol>
+<p>（1）this.$router.go(-1) 代表后退</p>
+<button @click="goback">后退</button>
+
+<p>模块中写入goback()方法： </p>
+<pre><code>methods:{
+     goback(){
+        this.$router.go(-1);
+             } 
+        }
+</code></pre><p>（2） this.$router.go(1) 代表前进  同理</p>
+<p>（3） this.$router.push(‘/xxx ‘)  这个编程式导航都作用就是跳转，比如我们判断用户名和密码正确时， 需要跳转到用户中心页面或者首页，都用到这个编程的方法来操作路由</p>
+<p>  goHome(){</p>
+<pre><code>this.$router.push(&apos;/&apos;);   或者   this.$router.replace(&apos;/&apos;);
+</code></pre><p>   }<br>  直接跳回首页…..</p>
+</li>
+</ol>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h4 id="——————————————–-Vue-2-0-基础-指令篇-———————————————–"><a href="#——————————————–-Vue-2-0-基础-指令篇-———————————————–" class="headerlink" title="——————————————–  Vue 2.0 基础  指令篇  ———————————————–"></a>——————————————–  Vue 2.0 基础  指令篇  ———————————————–</h4><ol>
+<li><p>v-if  v-else  v-show</p>
+<p>（1）v-if用来判断是否加载html的DOM，比如我们模拟一个用户登录状态，在用户登录后实现用户名称</p>
+</li>
+</ol>
+<p>这里我们在vue的data里定义了isLogin的值，当它为true时，网页就会显示：你好：JSPang，如果为false时，就显示请登录后操作</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;div v-if=&quot;isLogin&quot;&gt;你好：JSPang&lt;/div&gt;
+    &lt;div v-else&gt;请登录后操作&lt;/div&gt;
+&lt;/div&gt;
+
+isLogin:false
+</code></pre><p> （2） v-show: 调整css中display属性，DOM已经加载，只是CSS控制没有显示出来</p>
+<p> （3） v-for:    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;item in items&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>data:{
+     items:[20,23,18,65,32,19,54,56,41]
+ }
+</code></pre><p>  输出前，我们需要给数组进行排序：  工作中经常进行使用</p>
+<pre><code>computed:{
+      sortItems:function(){
+           return this.items.sort(sortNumber);
+          }
+       } 
+</code></pre><p>  //我们在computed里新声明了一个对象sortItems，如果不重新声明会污染原来的数据源，这是Vue不允许的，所以你要重新声明一个对象</p>
+<p> 自己编写一个方法sortNumber— 直接用sort()不准确，只能比较第一个数</p>
+<pre><code>function sortNumber(a,b){
+                return a-b
+  }
+</code></pre><p>  —-对象的循环输出： 数组里面是对象</p>
+<p>  有索引情况：</p>
+<pre><code>&lt;ul&gt;
+  &lt;li v-for=&quot;(student,index) in students&quot;&gt;
+     {{index}}: -{{student.name}} - {{student.age}}
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>  原生的对象形式的数组排序方法:</p>
+<p> //数组对象方法排序:<br>    function sortByKey(array,key){<br>         return array.sort(function(a,b){<br>               var x=a[key];<br>               var y=b[key];<br>               return ((x&lt;y)?-1:((x&gt;y)?1:0));<br>             });<br>          }<br>      computed:{<br>          sortStudent:function(){<br>          return sortByKey(this.students,’age’);<br>           }<br>     }</p>
+<ol>
+<li><p>v-text &amp; v-html</p>
+<p>,这种情况是有弊端的，就是当我们网速很慢或者javascript出错时，会暴露我们的。Vue给我们提供的v-text,就是解决这个问题的</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-text=&quot;message&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在javascript中写有html标签-v-html-可以进行解析html代码-—"><a href="#在javascript中写有html标签-v-html-可以进行解析html代码-—" class="headerlink" title="在javascript中写有html标签,v-html 可以进行解析html代码 —"></a>在javascript中写有html标签,v-html 可以进行解析html代码 —</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-html=&quot;msgHtml&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="！！！！！只能在可信的内容上使用v-html，永远不要在用户提交和可操作的网页上使用。"><a href="#！！！！！只能在可信的内容上使用v-html，永远不要在用户提交和可操作的网页上使用。" class="headerlink" title="！！！！！只能在可信的内容上使用v-html，永远不要在用户提交和可操作的网页上使用。"></a>！！！！！只能在可信的内容上使用v-html，永远不要在用户提交和可操作的网页上使用。</h2><ol>
+<li><p>v-on：绑定事件监听器   简写@</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;jianfen&quot;&gt;减分&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>除了绑定click之外，我们还可以绑定其它事件，比如键盘回车事件v-on:keyup.enter</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; v-on:keyup.enter=&quot;onEnter&quot; v-model=&quot;secondCount&quot;&gt;</span><br><span class="line"></span><br><span class="line">onEnter:function()&#123;</span><br><span class="line">     this.count=this.count+parseInt(this.secondCount);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p> 因为文本框的数字会默认转变成字符串，所以我们需要用parseInt()函数进行整数转换</p>
+<ol>
+<li><p>v-model指令  – 把数据绑定在特定的表单元素上，可以很容易的实现双向数据绑定</p>
+<p>​</p>
+</li>
+</ol>
+<h4 id="————————-Element-ui-——————————————————–"><a href="#————————-Element-ui-——————————————————–" class="headerlink" title="————————- Element ui ——————————————————–"></a>————————- Element ui ——————————————————–</h4><p> <a href="http://element.eleme.io/#/zh-CN/component/quickstart" target="_blank" rel="noopener">http://element.eleme.io/#/zh-CN/component/quickstart</a></p>
+<p>项目中引入Element ui      </p>
+<pre><code>cnpm install element-ui --save  
+</code></pre><p> 在main.js中写入以下内容:</p>
+<pre><code>import ElementUI from &apos;element-ui&apos;
+import &apos;element-ui/lib/theme-chalk/index.css&apos;
+Vue.use(ElementUI)
+</code></pre><h4 id="————————-Axios-——————————————————–"><a href="#————————-Axios-——————————————————–" class="headerlink" title="———————— Axios ——————————————————–"></a>———————— Axios ——————————————————–</h4><p>  安装Axios</p>
+<pre><code>cnpm install axios --save
+</code></pre><p>  在首页 pos.vue页面引入</p>
+<pre><code>import axios from &apos;axios&apos;
+</code></pre><h3 id="ES6-环境配置"><a href="#ES6-环境配置" class="headerlink" title="ES6 环境配置"></a>ES6 环境配置</h3><p> ES6代码转化成ES5</p>
+<p>  1.工程目录下边建立两个文件夹：src和dist</p>
+<p>​    src：书写ES6代码的文件夹</p>
+<p>​    dist：利用Babel编译成的ES5代码的文件夹</p>
+<p> 2.新建一个index.html文件</p>
+<p> 3.引入的是dist目录下的文件 即生成的ES5      </p>
+<pre><code>&lt;script src=&quot;./dist/index.js&quot;&gt;&lt;/script&gt;
+</code></pre><p> 4.在安装Babel之前,先初始化我们的项目</p>
+<pre><code>npm init -y  (生产package.json文件)     -y代表全部默认同意，就不用一次次按回车了
+</code></pre><p> 5.全局安装Babel-cli  (仍然不能成功转化)</p>
+<pre><code>cnpm install -g babel-cli   
+</code></pre><p> 6.本地安装babel-preset-es2015 和 babel-cli</p>
+<pre><code>npm install --save-dev babel-preset-es2015 babel-cli
+</code></pre><p> 安装完成后，我们可以看一下我们的package.json文件，已经多了devDependencies选项</p>
+<p> 7.在根目录下新建.babelrc文件，并打开录入下面的代码</p>
+<pre><code>   {
+    &quot;presets&quot;:[
+         &quot;es2015&quot;
+     ],
+    &quot;plugins&quot;:[]
+    }
+
+
+8.打开package.json文件，把文件修改成下面的样子。
+
+       {
+          &quot;name&quot;: &quot;es6&quot;,
+          &quot;version&quot;: &quot;1.0.0&quot;,
+          &quot;description&quot;: &quot;&quot;,
+          &quot;main&quot;: &quot;index.js&quot;,
+          &quot;scripts&quot;: {
+                     &quot;build&quot;: &quot;babel src/index.js -o dist/index.js&quot;      ！！！
+            }
+         }
+</code></pre><ol>
+<li>npm run build成功转化！！！！！！</li>
+</ol>
+<h3 id="ES6中新增的数字操作："><a href="#ES6中新增的数字操作：" class="headerlink" title="ES6中新增的数字操作："></a>ES6中新增的数字操作：</h3><ol>
+<li><p>数字验证  Number.isFinite( xx ) 只要是数字，不论是浮点型还是整形都会返回true，其他时候会返回false。</p>
+</li>
+<li><p>NaN验证   Number.isNaN(xx)); console.log(Number.isNaN(NaN));  true</p>
+</li>
+<li><p>判断是否为整数  Number.isInteger(xx)   </p>
+</li>
+</ol>
+<pre><code>let a=123.1;
+console.log(Number.isInteger(a)); //false
+</code></pre><ol>
+<li>整数转换Number.parseInt(xxx)</li>
+</ol>
+<p>​    浮点型转换Number.parseFloat(xxx)</p>
+<ol>
+<li><p>最大安全整数   console.log(Number.MAX_SAFE_INTEGER); </p>
+</li>
+<li><p>最小安全整数   console.log(Number.MIN_SAFE_INTEGER);</p>
+</li>
+<li><p>安全整数判断   isSafeInteger( )</p>
+</li>
+</ol>
+<pre><code> let a= Math.pow(2,53)-1;
+console.log(Number.isSafeInteger(a));//false
+</code></pre><h3 id="ES6-字符串连接操作"><a href="#ES6-字符串连接操作" class="headerlink" title="ES6 字符串连接操作"></a>ES6 字符串连接操作</h3><ol>
+<li>用<code></code>进行连接  ${};</li>
+</ol>
+<p>2.查找是否存在:   let jspang=’技术胖’;</p>
+<pre><code>let blog = &apos;非常高兴你能看到这篇文章，我是你的老朋友技术胖。这节课我们学习字符串模版。&apos;;
+document.write(blog.includes(jspang));
+</code></pre><p>3.判断开头是否存在： blog.startsWith(jspang);</p>
+<p>4.判断结尾是否存在： blog.endsWith(jspang);</p>
+<p>5.复制字符串   blog.repeat(4);</p>
+<pre><code>document.write(&apos;jspang|&apos;.repeat(3));
+</code></pre><p>  <strong>数组  在开发中特别重要  注意经常用 熟练掌握</strong></p>
+<ol>
+<li><p>JSON的数组格式</p>
+<pre><code>let json={ 
+   &apos;0&apos;:&apos;jspang&apos;,
+    &apos;1&apos;:&apos;技术胖&apos;，
+    &apos;2&apos;:&apos;比比叨&apos;，
+    length:3   //重要  必写
+    }
+ let arr=Array.from(json);  //json转化为数组
+ console.log(arr);
+</code></pre></li>
+</ol>
+<ol>
+<li><p>Array.of()  这个方法可以将 字符串转化成数组  </p>
+<pre><code>let arr=Array.of(3,4,5,6,7);
+console.log(arr);  //[3,4,5,6,7];
+let arr=Array.of(&apos;[1,2,3,4,5]&apos;);
+console.log(arr);  //[1,2,3,4,5];
+let arr=Array.of(&apos;cjc&apos;,&apos;ttt&apos;,223); 
+console.log(arr);  //[&apos;cjc&apos;,&apos;ttt&apos;,223];
+</code></pre></li>
+<li><p>find()  实例方法1–》所谓的实例方法就是并不是以Array对象开始的，而是必须有一个已经存在的数组，然后使用的方法</p>
+<pre><code>let arr=[1,2,3,4,5,6,7,8,9];
+arr.find(function(value,index,arr){  //value：表示当前查找的值
+return value&gt;5; 
+})               //可以利用传递的三个参数，得到我们需要的的值进行返回得到
+                  如果找不到会显示undefined,  找到一个后就会返回
+</code></pre></li>
+</ol>
+<ol>
+<li><p>实例2  fill() 它的作用是把数组进行填充，它接收三个参数，第一个参数是填充的变量，第二个是开始填充的位置，第三个是填充到的位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr=[0,1,2,3,4,5,6,7,8,9];</span><br><span class="line">arr.fill(&apos;jspang&apos;,2,5);</span><br><span class="line">console.log(arr);     //上边的代码是把数组从第二位到第五位用jspang进行填充 ,,就是从第二位开始到第                          五位之前都是jspang</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组的遍历   for … of 循环</p>
+<pre><code>(1)  let arr=[&apos;jspang&apos;,&apos;技术胖&apos;,&apos;大胖逼逼叨&apos;]
+     for (let index of arr.keys()){
+         console.log(index);
+      }          //只利用索引的情况
+
+（2） let arr=[&apos;jspang&apos;,&apos;技术胖&apos;,&apos;大胖逼逼叨&apos;]
+      for (let item of arr){
+        console.log(item);
+      }         // 只循环值
+
+（3） let arr=[&apos;jspang&apos;,&apos;aaa&apos;,&apos;bbb&apos;];
+
+ for(let [index,val] of arr.entries()){
+
+    console.log(index+&apos;:&apos;+val);
+
+     }       //同时用的情况
+</code></pre></li>
+<li><p>entries()方法  —》entries()实例方式生成的是Iterator形式的数组，那这种形式的好处就是可以让我们在需要时用next()手动跳转到下一个值</p>
+<pre><code>let arr=[&apos;jspang&apos;,&apos;技术胖&apos;,&apos;saji&apos;];
+let list=arr.entries();
+console.log(list.next().value);   //jspang
+console.log(list.next().value);   //技术胖
+console.log(list.next().value);   //saji
+</code></pre><p>   ​</p>
+</li>
+</ol>
+<h3 id="ES6中的箭头函数和扩展"><a href="#ES6中的箭头函数和扩展" class="headerlink" title="ES6中的箭头函数和扩展"></a>ES6中的箭头函数和扩展</h3><ol>
+<li><p>主动抛出错误Error</p>
+<pre><code>function add(a,b=1){ 
+  if(a==0){
+    throw new Error(&apos;A is error&apos;);
+ }
+ return a+b;
+} 
+  console.log(add(0));   //在控制台会报错 A is error
+</code></pre></li>
+<li><p>箭头函数  箭头函数中不可加new，也就是说箭头函数不能当构造函数进行使用</p>
+<p>   var add=(a,b=1)=&gt;a+b;   直接获得返回的值 —仅限于只有一行代码<br>   console.log(add(1));   //2<br>​        </p>
+<pre><code>var add=(a,b=1)=&gt;{ return a+b;}   
+console.log(add(1));   //2
+</code></pre><p>   // 多行代码的情况</p>
+<pre><code>var add=(a,b=1)=&gt;{
+    console.log(&apos;jspang&apos;);
+    return a+b;
+ }
+
+ console.log(add(1));   //2
+</code></pre></li>
+<li><p>获得需要传递的参数个数  console.log(add.length);</p>
+</li>
+<li><p>函数中的严谨模式   我们在ES中就经常使用严谨模式来进行编程，但是必须写在代码最上边，相当于全局使用  ‘use strict’     在ES6中我们可以写在函数体中，相当于针对函数来使用。</p>
+<pre><code>如果你使用了默认值，再使用严谨模式的话，就会有冲突，所以我们要取消默认值的操作，这时候你在运行就正常了。
+</code></pre></li>
+</ol>
+<pre><code>function add(a,b=1){
+ &apos;use strict&apos;
+  if(a == 0){
+       throw new Error(&apos;This is error&apos;);
+  }
+   return a+b;
+ }
+
+  console.log(add(1));     //会报错
+</code></pre><h3 id="对象的函数解构"><a href="#对象的函数解构" class="headerlink" title="对象的函数解构  !!!!!!!!!!!!!!!!"></a>对象的函数解构  !!!!!!!!!!!!!!!!</h3><ol>
+<li>对象解构</li>
+</ol>
+<pre><code>let json={
+      a:&apos;jspang&apos;,
+      b:&apos;技术胖&apos;
+   };
+
+function fun({a,b=&apos;web&apos;}){
+    console.log(a,b);
+  }
+fun(json);
+</code></pre><ol>
+<li><p>数组解构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr=[&apos;jspang&apos;,&apos;技术胖&apos;,&apos;web&apos;];</span><br><span class="line">function fun(a,b,c)&#123;</span><br><span class="line">   console.log(a,b,c);</span><br><span class="line"> &#125;</span><br><span class="line">fun(...arr);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>in是用来判断对象或者数组中是否存在某个值的。我们先来看一下用in如何判断对象里是否有某个值</p>
+<pre><code>   let json={
+      a:&apos;jspang&apos;,
+      b:&apos;aaa&apos;
+     };
+
+   console.log(&apos;c&apos; in json);  //false
+
+   let arr=[&apos;a&apos;,,,];
+   console.log(0 in arr);//true  这里的0为下标，判断那个位置上是否存在值
+
+4.数组遍历的方法   前后端规定
+
+  forEach:  let arr=[&apos;jspang&apos;,&apos;aaa&apos;,&apos;sss&apos;];
+            arr.forEach((val,index)=&gt;console.log(index,val)); 
+</code></pre><p>   ​</p>
+</li>
+</ol>
+<pre><code>     filter:   let arr=[&apos;jspang&apos;,&apos;aaa&apos;,&apos;sss&apos;];
+               arr.filter(x=&gt;console.log(x));
+​       
+
+
+     some:     let arr=[&apos;jspang&apos;,&apos;aaa&apos;,&apos;sss&apos;];
+               arr.some(x=&gt;console.log(x));   //和filter相似
+​
+
+
+      map:     let arr=[&apos;jspang&apos;,&apos;aaa&apos;,&apos;sss&apos;];
+               console.log(arr.map(x=&gt;&apos;web&apos;));   //有替换的效果
+
+5. 数组转换字符串
+
+   (1) join()方法就是在数组元素中间，加了一些间隔，开发中很有用处。
+
+       let arr=[&apos;jspang&apos;,&apos;技术胖&apos;,&apos;web&apos;];
+       console.log(arr.join(&apos;|&apos;));   //&apos;jspang|技术胖|web&apos;
+
+   (2)  toString()方法  转换时只是是用逗号隔开了
+
+       let arr=[&apos;jspang&apos;,&apos;web&apos;,&apos;aaa&apos;];
+       console.log(arr.toString());  //&apos;jspang,web,aaa&apos;
+</code></pre><h3 id="ES6中的对象"><a href="#ES6中的对象" class="headerlink" title="ES6中的对象"></a>ES6中的对象</h3><ol>
+<li><p>对象赋值</p>
+<p>let name=’jspang’;</p>
+<p>let skill=’web’;</p>
+<p>let obj={name,skill};   //进行变量的赋值就可以了</p>
+<p>console.log(obj);   // {name:’jspang’,skill:’web’}</p>
+</li>
+</ol>
+<ol>
+<li><p>Key值的构建 –&gt;有时候我们会在后台取出key值，而不是我们前台定义好的，这时候我们如何构建我们的key值那。比如我们在后台取了一个key值，然后可以用[ ] 的形式，进行对象的构建。</p>
+<pre><code>let key=&quot;skill&quot;;
+    var obj={
+             [key]:&apos;web&apos;
+   }
+
+ console.log(obj);   //{skill:&apos;web&apos;}   
+</code></pre></li>
+<li><p>Object.is()  严格相等</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var  obj1=&#123;name:&apos;jspang&apos;&#125;;</span><br><span class="line"></span><br><span class="line"> var  obj2=&#123;name:&apos;jspang&apos;&#125;;</span><br><span class="line"></span><br><span class="line">console.log(Object.is(obj1.name,obj2.name));  //true</span><br><span class="line"></span><br><span class="line">console.log(+0 === -0);  //true</span><br><span class="line"></span><br><span class="line">console.log(NaN === NaN ); //false</span><br><span class="line"></span><br><span class="line">console.log(Object.is(+0,-0)); //false</span><br><span class="line"></span><br><span class="line">console.log(Object.is(NaN,NaN)); //true</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Object.assign() 合并对象  </li>
+</ol>
+</li>
+</ol>
+<pre><code>let b={b:&apos;aaa&apos;};
+let c={c:&apos;web&apos;};
+
+let d=Objet.assign(a,b,c);
+
+console.log(d); //{a:&apos;jspag&apos;,b:&apos;aaa&apos;,c:&apos;web&apos;}
+</code></pre><ol>
+<li><p>Symbol在对象中的作用  —Symbol 全局标记  新增加的数据类型</p>
+<p> 如何用Symbol构建对象的Key，并调用和赋值</p>
+<pre><code>var jspang=Symbol();
+var obj={   
+    [jspang]:&apos;技术胖&apos;
+ }
+console.log(obj[jspang]);  //技术胖  一定要用[] 不然获取不到值
+
+obj[jspang]=&apos;web&apos;;
+
+console.log(obj[jspang]);  //web
+</code></pre></li>
+<li><p>Symbol对象元素的保护作用  nodejs中常用</p>
+<p>在对象中有很多值，但是循环输出时，并不希望全部输出，那我们就可以使用Symbol进行保护</p>
+<p>没有进行保护的写法： </p>
+<p>   var obj={name:’jspang’,skill:’web’,age:18};                   </p>
+<pre><code>for (let item in obj){
+    console.log(obj[item]);
+     }
+</code></pre><p>现在我不想别人知道我的年龄，这时候我就可以使用Symbol来进行循环保护</p>
+</li>
+</ol>
+<pre><code>let obj={name:&apos;jspang&apos;,skill:&apos;web&apos;};
+let age=Symbol();
+   obj[age]=18;
+   for (let item in obj){
+       console.log(obj[item]);
+   } 
+     console.log(obj);
+</code></pre><h3 id="Set数据结构-！！！！！！！！！！！！-里面放数组-（去重）"><a href="#Set数据结构-！！！！！！！！！！！！-里面放数组-（去重）" class="headerlink" title="Set数据结构  ！！！！！！！！！！！！  里面放数组 （去重）"></a>Set数据结构  ！！！！！！！！！！！！  里面放数组 （去重）</h3><ol>
+<li><p>Set和Array 的区别是Set不允许内部有重复的值，如果有只显示一个，相当于去重。虽然Set很像数组，但是他不是数组</p>
+<p>let setArr=new Set([‘jspang’,’web’,’aa’,’jspang’]);<br>console.log(setArr); //  Set{‘jspang’,’web’,’aa’};</p>
+</li>
+<li><p>Set值的增删查</p>
+</li>
+</ol>
+<p>追加add :在使用Array的时候，可以用push进行追加值，那Set稍有不同，它用更语义化的add进行追加</p>
+<pre><code>setArr.add(&apos;前端职场&apos;);
+console.log(setArr);
+
+删除delete: 
+
+setArr.delete(&apos;前端职场&apos;);
+console.log(setArr);
+
+查找has:
+
+console.log(setArr.has(&apos;jspang&apos;)); //true
+
+删除clear: 删除全部值
+
+setArr.clear();   // set{}
+</code></pre><ol>
+<li><p>set的循环  for…of…</p>
+<pre><code>for(let item of setArr){
+         console.log(item);
+   }
+</code></pre></li>
+<li><p>size 属性</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(setArr.size);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>forEach循环</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setArr.forEach(value=&gt;console.log(value));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>WeakSet的声明  里面可以放对象</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let weakObj=new WeakSet();</span><br><span class="line"></span><br><span class="line">let obj=&#123;a:&apos;jspang&apos;,b:&apos;web&apos;&#125;;</span><br><span class="line"></span><br><span class="line">weakObj.add(obj);</span><br><span class="line"></span><br><span class="line">console.log(weakObj);</span><br></pre></td></tr></table></figure>
+<p> WeakSet里边的值也是不允许重复的</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> let weakObj=new WeakSet();</span><br><span class="line"> let obj=&#123;a:&apos;jspang&apos;,b:&apos;技术胖&apos;&#125;</span><br><span class="line"> let obj1=obj;     //obj obj1占用相同的存储空间 所以值不重复</span><br><span class="line"> weakObj.add(obj);</span><br><span class="line"> weakObj.add(obj1);</span><br><span class="line"> console.log(weakObj);</span><br><span class="line"></span><br><span class="line">let weakObj=new WeakSet();</span><br><span class="line"></span><br><span class="line">let obj=&#123;a:&apos;jspang&apos;,b:&apos;技术胖&apos;&#125;;</span><br><span class="line"></span><br><span class="line">let obj1=&#123;a:&apos;jspang&apos;,b:&apos;技术胖&apos;&#125;;</span><br><span class="line"></span><br><span class="line">weakObj.add(obj);</span><br><span class="line"></span><br><span class="line">weakObj.add(obj1);</span><br><span class="line"></span><br><span class="line">console.log(weakObj);   //两个都打印出来，因为占据不同的存储空间</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="map数据结构-效果灵活性和效率比-json-高-开发中经常使用！！！"><a href="#map数据结构-效果灵活性和效率比-json-高-开发中经常使用！！！" class="headerlink" title="map数据结构  效果灵活性和效率比 json 高       开发中经常使用！！！"></a>map数据结构  效果灵活性和效率比 json 高       开发中经常使用！！！</h3><ol>
+<li><p>​</p>
+<pre><code>let json={
+    name:&apos;jspang&apos;,
+    skill:&apos;web&apos;
+ };
+console.log(json.name);  //jspang
+
+var map=new Map();
+
+ map.set(json,&apos;iam&apos;);   //set设置值，优点就是左边可以为任意形式的键值key  右边进行赋值
+ console.log(map);
+
+ map.set(&apos;jspang&apos;,json);  key值是一个字符串，赋一个对象
+ console.log(map);    
+</code></pre></li>
+</ol>
+<ol>
+<li>删除delete clear  查找has 尺寸size  赋值set  取值get</li>
+</ol>
+<p>取值：map.get(里面是key值);</p>
+<p> 删除：map.delete(json); //删除了key值为json的数据</p>
+<p> 清除所有元素clear:    map.clear();</p>
+<p> size()    console.log(map.size);</p>
+<p> 查找是否存在 has     map.has(‘jspang’);  键值jspang是否存在</p>
+<h3 id="Proxy进行预处理"><a href="#Proxy进行预处理" class="headerlink" title="Proxy进行预处理"></a>Proxy进行预处理</h3><p>  1.声明Proxy  new Proxy({},{});</p>
+<p>需要注意的是这里是两个花括号，第一个花括号就相当于我们方法的主体，后边的花括号就是Proxy代理处理区域，相当于我们写钩子函数的地方</p>
+<pre><code>var pro = new Proxy({
+add: function (val) {
+    return val + 10;
+},
+name: &apos;I am Jspang&apos;
+}, {
+    get:function(target,key,property){
+        console.log(&apos;come in Get&apos;);
+        return target[key];
+    }
+});
+
+console.log(pro.name);   在控制台看到结果，先输出了come in Get。相当于在方法调用前的钩子函数
+</code></pre><p>  (1) get属性: get属性是在你得到某对象属性值时预处理的方法，他接受三个参数</p>
+<pre><code>target：得到的目标值
+key：目标的key值，相当于对象的属性
+property：这个不太常用，用法还在研究中
+</code></pre><p>  (2) set属性： set属性是指你要改变Proxy属性值时，进行的预先处理。它接收四个参数。</p>
+<pre><code>  target:目标值。
+  key：目标的Key值。
+  value：要改变的值。 
+  receiver：改变前的原始值。
+
+var pro = new Proxy({
+add: function (val) {
+    return val + 10;
+},
+name: &apos;I am Jspang&apos;
+}, {
+    get:function(target,key){
+        console.log(&apos;come in Get&apos;);
+        return target[key];
+    },
+    set:function(target,key,value,receiver){
+        console.log(`    setting ${key} = ${value}`);
+        return target[key] = value;
+    }
+
+  });
+
+   console.log(pro.name);
+   pro.name=&apos;技术胖&apos;;
+   console.log(pro.name);
+</code></pre><p>  （3）apply的使用：apply的作用是调用内部的方法，它使用在方法体是一个匿名函数时</p>
+<pre><code>let target = function () {
+   return &apos;I am JSPang&apos;;
+};
+var handler = {
+    apply(target, ctx, args) {
+       console.log(&apos;do apply&apos;);
+       return Reflect.apply(...arguments);
+     }
+}
+
+var pro = new Proxy(target, handler);
+
+ console.log(pro());
+</code></pre><h3 id="promise基本用法"><a href="#promise基本用法" class="headerlink" title="promise基本用法"></a>promise基本用法</h3><p> 1.promise执行多步操作非常好用，那我们就来模仿一个多步操作的过程，那就以吃饭为例</p>
+<p>   洗菜做饭—坐下来吃饭—收拾桌子洗碗    这个过程是有一定的顺序的，你必须保证上一步完成，才能顺利进行下一步</p>
+<pre><code>let state=1;
+
+function step1(resolve,reject){
+console.log(&apos;1.开始-洗菜做饭&apos;);
+    if(state==1){
+       resolve(&apos;洗菜做饭--完成&apos;);
+     }else{
+       reject(&apos;洗菜做饭--出错&apos;);
+     }
+  }
+
+ function step2(resolve,reject){
+     console.log(&apos;2.开始-坐下来吃饭&apos;);
+    if(state==1){
+       resolve(&apos;坐下来吃饭--完成&apos;);
+     }else{
+       reject(&apos;坐下来吃饭--出错&apos;);
+     }
+  }
+
+   function step3(resolve,reject){
+    console.log(&apos;3.开始-收拾桌子，洗碗&apos;);
+    if(state==1){
+       resolve(&apos;收拾桌子，洗碗--完成&apos;);
+     }else{
+       reject(&apos;收拾桌子，洗碗--出错&apos;);
+       }
+     }
+
+  new Promise(step1).then(function(val){
+    console.log(&apos;val&apos;);
+    return new Promise(step2);
+ }).then(function(val){
+    console.log(&apos;val&apos;);
+    return new Promise(step3);
+ }).then(function(val){
+    console.log(&apos;val&apos;);
+});
+</code></pre><h3 id="class-类的使用"><a href="#class-类的使用" class="headerlink" title="class 类的使用"></a>class 类的使用</h3><p>类里面放函数，多个函数之间不用分号，若要调用类里面其他的函数，需要返回值</p>
+<ol>
+<li><p>​</p>
+<pre><code>class Coder{
+name(val){
+   console.log(val);
+   return val;
+ }
+skill(val){
+   console.log(this.name(&apos;技术胖&apos;)+&apos;:&apos;+&apos;skill-&apos;+val);
+   }
+ }
+ let jspang=new Coder;
+ jspang.skill(&apos;web&apos;);  //技术胖：skill-web      
+</code></pre></li>
+<li><p>类的传参  在类的参数传递中我们用constructor( )进行传参</p>
+</li>
+</ol>
+<pre><code>class Coder{
+    name(val){
+       console.log(val);
+       return val;
+    }
+    skill(val){
+       console.log(this.name(&apos;jspang&apos;)+&apos;:&apos;+&apos;skill-&apos;+val);
+    }
+    constructor(a,b){
+       this.a=a;
+       this.b=b;
+     }
+
+     add(){
+        return this.a+this.b;
+     }
+
+}
+   let jspang=new Coder(1,2);
+
+   console.log(jspang.add()); //3
+</code></pre><ol>
+<li><p>类的继承  声明一个htmler的新类并继承Coder类，htmler新类里边为空，这时候我们实例化新类，并调用里边的name方法。结果也是可以调用到的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class htmler extends Coder&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let pang=new htmler;</span><br><span class="line"></span><br><span class="line">pang.name(&apos;liu&apos;);  //控制台打印 liu</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="模块化操作"><a href="#模块化操作" class="headerlink" title="模块化操作"></a>模块化操作</h3><p>  export 输出操作（生成模块）       import引入操作（引入模块）</p>
+<ol>
+<li>​</li>
+</ol>
+<pre><code>export var a=&apos;jspang&apos;;   
+import {a} from &apos;./temp.js&apos;; 
+console.log(a);
+</code></pre><ol>
+<li><p>多变量的输出  - –这里声明了3个变量，需要把这3个变量都进行模块化输出，这时候我们给他们包装成对象就可以了</p>
+<p>var a=’jspang’;<br>var b=’web’;<br>var c=’aa’;</p>
+<p>export {a,b,c}</p>
+</li>
+<li><p>函数的模块化输出</p>
+<p>export function add(a,b){<br>  return a+b;<br>}</p>
+</li>
+</ol>
+<ol>
+<li><p>as的用法（有些时候我们并不想暴露模块里边的变量名称，而给模块起一个更语义话的名称，这时候我们就可以使用as来操作）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a=&apos;jspang&apos;;</span><br><span class="line">var b=&apos;web&apos;;</span><br><span class="line">var c=&apos;aa&apos;;</span><br><span class="line">export &#123;</span><br><span class="line">   x as a,</span><br><span class="line">   y as b,</span><br><span class="line">   z as c</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>export default的使用 （加上default相当是一个默认的入口。在一个文件里export default只能有一个）</p>
+<p>  export和export default区别</p>
+</li>
+</ol>
+<pre><code>    export:   export var a =&apos;jspang&apos;;
+    export function add(a,b){
+                         return a+b;
+     }
+
+   对应的导入方式：
+
+   import {a,add} from &apos;./temp&apos;;  
+
+ 也可以分开写
+
+   export default :  export default var a=&apos;jspang&apos;;
+
+   对应的导入方式:   
+
+ import str from &apos;./temp&apos;;  
+
+因为export default只有一个，所以引入时可以随便起名
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/19/vue/" data-id="cjez7tld70008fwuqbbrbo3tl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/20/PHP_02.V5.0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第二天 GET与POST
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/19/webpack3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">webpack-3</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/20/JQUERY /">jQuery的重点</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/DOM + BOM/">DOM + BOM</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/html + css/">HTML + CSS</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/PHP_01.V5.0/">第一天 服务端开发基础</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/PHP_05.V5.0/">第五天 PHP操作MySQL</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

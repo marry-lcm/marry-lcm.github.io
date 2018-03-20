@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第二天 GET与POST | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="每日目标 能够进行服务端渲染操作 能够说出GET与POST请求方式的区别 能够在服务端分别接收GET与POST的请求参数 能够处理复选按钮的请求参数 能够进行文件上传并使用$_FILES处理 综合案例：能够完成注册案例  GET请求请求在网站的访问过程中很常见，并且请求分为多种方式：GET、POST、PUT、DELETE、OPTIONS等。其中GET和POST最常用。 什么是GET请求？GET从字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二天 GET与POST">
+<meta property="og:url" content="http://yoursite.com/2018/03/20/PHP_02.V5.0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="每日目标 能够进行服务端渲染操作 能够说出GET与POST请求方式的区别 能够在服务端分别接收GET与POST的请求参数 能够处理复选按钮的请求参数 能够进行文件上传并使用$_FILES处理 综合案例：能够完成注册案例  GET请求请求在网站的访问过程中很常见，并且请求分为多种方式：GET、POST、PUT、DELETE、OPTIONS等。其中GET和POST最常用。 什么是GET请求？GET从字">
+<meta property="og:updated_time" content="2018-03-20T04:01:38.147Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第二天 GET与POST">
+<meta name="twitter:description" content="每日目标 能够进行服务端渲染操作 能够说出GET与POST请求方式的区别 能够在服务端分别接收GET与POST的请求参数 能够处理复选按钮的请求参数 能够进行文件上传并使用$_FILES处理 综合案例：能够完成注册案例  GET请求请求在网站的访问过程中很常见，并且请求分为多种方式：GET、POST、PUT、DELETE、OPTIONS等。其中GET和POST最常用。 什么是GET请求？GET从字">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PHP_02.V5.0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/20/PHP_02.V5.0/" class="article-date">
+  <time datetime="2018-03-20T03:56:29.833Z" itemprop="datePublished">2018-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第二天 GET与POST
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="每日目标"><a href="#每日目标" class="headerlink" title="每日目标"></a>每日目标</h2><ul>
+<li>能够进行服务端渲染操作</li>
+<li>能够说出GET与POST请求方式的区别</li>
+<li>能够在服务端分别接收GET与POST的请求参数</li>
+<li>能够处理复选按钮的请求参数</li>
+<li>能够进行文件上传并使用$_FILES处理</li>
+<li>综合案例：<strong>能够完成注册案例</strong></li>
+</ul>
+<h2 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h2><p>请求在网站的访问过程中很常见，并且请求分为多种方式：GET、POST、PUT、DELETE、OPTIONS等。其中GET和POST最常用。</p>
+<h3 id="什么是GET请求？"><a href="#什么是GET请求？" class="headerlink" title="什么是GET请求？"></a>什么是GET请求？</h3><p>GET从字面上理解为’获取’，通常用于获取服务端的数据。</p>
+<p>常见的发起GET请求的方式有：</p>
+<ul>
+<li>地址栏访问</li>
+<li>src/href</li>
+<li>表单</li>
+</ul>
+<p>网页中有许多效果使用的就是GET请求：</p>
+<ul>
+<li>各种搜索框</li>
+<li>各种详情页面</li>
+<li>大部分请求都是GET请求。。。</li>
+</ul>
+<h2 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h2><p>表单的概念在生活中很常见，就像是问卷调查表一样，别人先把问卷发给你，你照着问卷的要求填写，完事过后再将填完的问卷发给别人，从而达到一个将别人需要的信息传递给别人的一种方式。</p>
+<p>传统的网页大多数的作用都是展示数据，就是将信息传递给用户。而在现代化的 Web 开发中，非常注重信息交互，所以表单也随处可见，只是形式上变成网页，性质上还是一模一样的。主要的作用任然是<strong>收集指定的用户信息</strong>。</p>
+<blockquote>
+<p>信息交互：例如 <a href="http://www.jianshu.com" target="_blank" rel="noopener">简书</a> 这个平台，除了展示文章（展示信息），还可以发布文章（收集信息）</p>
+</blockquote>
+<h3 id="表单基本使用"><a href="#表单基本使用" class="headerlink" title="表单基本使用"></a>表单基本使用</h3><p>HTML 中有一个专门用于提交数据的标签：<code>&lt;form&gt;</code>，通过这个标签可以很容易的收集用户输入。</p>
+<blockquote>
+<p>form 标签有两个必要属性：</p>
+<ul>
+<li>action：表单提交地址（填完了，交给谁）</li>
+<li>method：表单以什么方式提交</li>
+</ul>
+</blockquote>
+<p>例如，我们需要在登录界面上收集用户输入的用户名和密码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"login.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"username"</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"password"</span>&gt;</span>密码<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>按照目前的情况，用户第一次请求得到这个表单页面，填写完表单内容，点击登录，表单会自动发送到 <code>login.php</code>，剩下的问题就是要考虑如何在 <code>login.php</code> 中获取到用户提交过来的内容。</p>
+<blockquote>
+<p>PHP 中有三个超全局变量专门用来获取表单提交内容：</p>
+<ul>
+<li><code>$_GET</code>：用于获取以 GET 方式提交的内容，更标准的说法：接收 URL 地址问号参数中的数据</li>
+<li><code>$_POST</code>：用于获取以 POST 方式提交的内容，更标准的说法：接收 请求体 中的数据</li>
+<li><code>$_REQUEST</code>：用于获取 GET 或 POST 方式提交的内容</li>
+</ul>
+</blockquote>
+<p>借助 <code>$_POST</code> 或者 <code>$_REQUEST</code> 就可以获取到表单提交的内容：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 获取表单提交的用户名和密码</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'用户名：'</span> . $_REQUEST[<span class="string">'username'</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'密码：'</span> . $_REQUEST[<span class="string">'password'</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="提交地址"><a href="#提交地址" class="headerlink" title="提交地址"></a>提交地址</h4><p><code>action</code> 提交地址指的是这个表单填写完成过后点击提交，发送请求的请求地址是什么。</p>
+<p>从便于维护的角度考虑，一般我们最常见的都是提交给当前文件，然后在当前文件中判断是否是表单提交请求：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> ($_SERVER[<span class="string">'REQUEST_METHOD'</span>] === <span class="string">'POST'</span>) &#123;</span><br><span class="line">  <span class="comment">// 表单提交请求</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，建议使用 <code>$_SERVER[&#39;PHP_SELF&#39;]</code> 动态获取当前页面访问路径，这样就不用因为文件重命名或者网站目录结构调整而修改代码了：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 这样写死 action 地址，当文件重命名就需要修改代码 --&gt;</span><br><span class="line">&lt;form action=<span class="string">"/foo/login.php"</span>&gt;</span><br><span class="line">  &lt;!-- ... --&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;!-- 通过 `$_SERVER[<span class="string">'PHP_SELF'</span>]` 获取路径，可以轻松避免这个问题 --&gt;</span><br><span class="line">&lt;form action=<span class="string">"&lt;?php echo $_SERVER['PHP_SELF']; ?&gt;"</span>&gt;</span><br><span class="line">  &lt;!-- ... --&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="提交方式"><a href="#提交方式" class="headerlink" title="提交方式"></a>提交方式</h4><p><code>method</code> 可以用于设置表单提交的方式，目前我们所认识的就是最常见两种表单提交方式：<code>GET</code> 和 <code>POST</code>。</p>
+<p>从效果上来看，两者都可以将数据提交到服务端，但是从实现提交的原理上两者有很大的不同：</p>
+<ul>
+<li>GET<ul>
+<li><strong>表单数据是通过 URL 中的 ? 参数传递到服务端的</strong></li>
+<li>可以在地址栏中看到提交的内容</li>
+<li>数据长度有限制，因为 URL 地址长度有限（2000个字符）</li>
+</ul>
+</li>
+<li>POST<ul>
+<li><strong>表单数据是通过请求体传递到服务端的</strong>，我们在界面上看不到</li>
+<li>可以提交任何类型的数据，包括文件</li>
+<li>由于界面上看不见，浏览器也不储存，所以更安全</li>
+</ul>
+</li>
+</ul>
+<p>至于什么情况下应该选用哪种方式，这个需要结合业务场景和这两种方式各自的特点来决定，没有绝对的答案，只能给出一些原则：</p>
+<ul>
+<li>绝不能使用 GET 来发送密码或其他敏感信息！！！</li>
+<li><strong>应该想清楚这次请求到底主要是去拿东西，还是去送东西</strong></li>
+</ul>
+<h3 id="常见表单元素处理"><a href="#常见表单元素处理" class="headerlink" title="常见表单元素处理"></a>常见表单元素处理</h3><p>至于表单元素中的文本框文本域一类的元素，都是直接将元素的 <code>name</code> 属性值作为键，用户填写的信息作为值，发送到服务端。</p>
+<p>但是表单元素中还有一些比较特殊的表单元素需要单独考虑：</p>
+<h4 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 最终只会提交选中的那一项的 value --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"male"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"female"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="复选按钮"><a href="#复选按钮" class="headerlink" title="复选按钮"></a>复选按钮</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 没有设置 value 的 checkbox 选中提交的 value 是 on --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"agree"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 设置了 value 的 checkbox 选中提交的是 value 值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"agree"</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果需要同时提交多个选中项，可以在 <code>name</code> 属性后面 跟上 <code>[]</code>：</p>
+<blockquote>
+<p><a href="http://php.net/manual/zh/faq.html.php#faq.html.arrays" target="_blank" rel="noopener">http://php.net/manual/zh/faq.html.php#faq.html.arrays</a></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"funs[]"</span> <span class="attr">value</span>=<span class="string">"football"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"funs[]"</span> <span class="attr">value</span>=<span class="string">"basketball"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"funs[]"</span> <span class="attr">value</span>=<span class="string">"world peace"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最终提交到服务端，通过 <code>$_POST</code> 接收到的是一个索引数组。</p>
+<h4 id="选择框"><a href="#选择框" class="headerlink" title="选择框"></a>选择框</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"subject"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 设置 value 提交 value --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>语文<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 没有设置 value 提交 innerText --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>数学<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="基于文件的注册"><a href="#基于文件的注册" class="headerlink" title="基于文件的注册"></a>基于文件的注册</h4><ol>
+<li>分析<ol>
+<li>用户请求一个注册页面</li>
+<li>服务端返回一个注册表单</li>
+<li>用户填写表单并提交</li>
+<li>服务端接收用户提交的信息</li>
+<li>判断是否正确填写内容以及是否勾选同意</li>
+<li>如果出现异常界面给出提示，并返回表单</li>
+<li>如果都正常，则保存到文件中（每个用户一行）</li>
+</ol>
+</li>
+</ol>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><blockquote>
+<p><a href="http://php.net/manual/zh/features.file-upload.php" target="_blank" rel="noopener">http://php.net/manual/zh/features.file-upload.php</a></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>修改 <code>php.ini</code> 中的 <code>post_max_size</code> 配置，让服务端可以接受更大的请求体体积</li>
+<li>修改 <code>php.ini</code> 中的 <code>upload_max_filesize</code> 配置，让服务端支持更大的单个上传文件</li>
+</ul>
+<p>*暂时作为了解</p>
+</blockquote>
+<p><code>type</code> 属性为 <code>file</code> 的 <code>input</code> 元素可以通过表单提交文件（上传文件），服务端 PHP 可以通过 <code>$_FILES</code> 获取上传的文件信息。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 如果选择了文件 $_FILES['file']['error'] =&gt; 0</span></span><br><span class="line"><span class="comment">// 详细的错误码说明：http://php.net/manual/zh/features.file-upload.errors.php</span></span><br><span class="line"><span class="keyword">if</span> ($_FILES[<span class="string">'file'</span>][<span class="string">'error'</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="comment">// PHP 在会自动接收客户端上传的文件到一个临时的目录</span></span><br><span class="line">  $temp_file = $_FILES[<span class="string">'file'</span>][<span class="string">'tmp_name'</span>];</span><br><span class="line">  <span class="comment">// 我们只需要把文件保存到我们指定上传目录</span></span><br><span class="line">  $target_file = <span class="string">'../static/uploads/'</span> . $_FILES[<span class="string">'file'</span>][<span class="string">'name'</span>];</span><br><span class="line">  <span class="keyword">if</span> (move_uploaded_file($temp_file, $target_file)) &#123;</span><br><span class="line">    $image_file = <span class="string">'/static/uploads/'</span> . $_FILES[<span class="string">'file'</span>][<span class="string">'name'</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>$_FILES</code> 同样也是一个关联数组，键为表单的 <code>name</code>，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">array(1) &#123;</span><br><span class="line">  [&quot;avatar&quot;]=&gt;</span><br><span class="line">  array(5) &#123;</span><br><span class="line">    [&quot;name&quot;]=&gt;</span><br><span class="line">    string(17) &quot;demo.jpg&quot;</span><br><span class="line">    [&quot;type&quot;]=&gt;</span><br><span class="line">    string(10) &quot;image/jpeg&quot;</span><br><span class="line">    [&quot;tmp_name&quot;]=&gt;</span><br><span class="line">    string(27) &quot;C:\Windows\Temp\php786C.tmp&quot;</span><br><span class="line">    [&quot;error&quot;]=&gt;</span><br><span class="line">    int(0)</span><br><span class="line">    [&quot;size&quot;]=&gt;</span><br><span class="line">    int(29501)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="文件移动"><a href="#文件移动" class="headerlink" title="文件移动"></a>文件移动</h4><p>如果需要将上传后的文件移动到某个指定位置，需要使用move_uploaded_file()函数</p>
+<p> <a href="http://www.w3school.com.cn/php/func_filesystem_move_uploaded_file.asp" target="_blank" rel="noopener">move_uploaded_file()</a> | 将上传的文件移动到新位置。   </p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li>HTML 中的 form 标签：<a href="http://www.w3school.com.cn/html/html_forms.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/html/html_forms.asp</a></li>
+<li>PHP 中处理表单：<a href="http://www.w3school.com.cn/php/php_forms.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/php/php_forms.asp</a></li>
+<li>Emmet 手册：<a href="https://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">https://docs.emmet.io/cheat-sheet/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/20/PHP_02.V5.0/" data-id="cjez7tlcr0002fwuqo6g6afx3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/20/PHP_03.V5.0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第三天 音乐列表与HTTP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/19/vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue + ES6</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/20/JQUERY /">jQuery的重点</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/DOM + BOM/">DOM + BOM</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/html + css/">HTML + CSS</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/PHP_01.V5.0/">第一天 服务端开发基础</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/PHP_05.V5.0/">第五天 PHP操作MySQL</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
