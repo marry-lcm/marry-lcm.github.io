@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/19/webpack3/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="http://www.jianshu.com/p/42e11515c10f  mkdir webpack_demo 建立一个文件夹                         cd webpack_demo 进入这个文件夹 1. 全局安装webpack – cnpm install -g webpack  这样你才可以正确的使用webpack这个命令 必做   官网不建议使用（这会将您项">
-<meta property="og:updated_time" content="2018-03-20T02:21:04.382Z">
+<meta property="og:updated_time" content="2018-03-20T14:13:19.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack-3">
 <meta name="twitter:description" content="http://www.jianshu.com/p/42e11515c10f  mkdir webpack_demo 建立一个文件夹                         cd webpack_demo 进入这个文件夹 1. 全局安装webpack – cnpm install -g webpack  这样你才可以正确的使用webpack这个命令 必做   官网不建议使用（这会将您项">
@@ -92,9 +92,9 @@ cd webpack_demo 进入这个文件夹
 </code></pre><h1 id="2-本地安装-先初始化"><a href="#2-本地安装-先初始化" class="headerlink" title="2. 本地安装 先初始化"></a>2. 本地安装 先初始化</h1><p>cnpm init -y (可以选择性填，也可以回车)—– 为了生成package.json</p>
 <p>cnpm install –save-dev webpack      (–save是下载到本地  并保存到package.json中，dev是指在开发环境时使用这个包，不写就是生产环境)</p>
 <p>webpack -v  查看版本</p>
-<h1 id="3-安装过程中出现错误原因："><a href="#3-安装过程中出现错误原因：" class="headerlink" title="3.安装过程中出现错误原因："></a>3.安装过程中出现错误原因：</h1><p>​                                                 （1）网速不好，建议用cnpm  </p>
-<p>​                                                   (2)    nodejs版本过低，网上查看如何升级node  </p>
-<p>​                                                   (3)权限的限制问题，如果你是Windows系统，主要要使用以管理员方式安装</p>
+<h1 id="3-安装过程中出现错误原因："><a href="#3-安装过程中出现错误原因：" class="headerlink" title="3.安装过程中出现错误原因："></a>3.安装过程中出现错误原因：</h1><p>（1）网速不好，建议用cnpm  </p>
+<p>​  (2)    nodejs版本过低，网上查看如何升级node  </p>
+<p>​  (3)权限的限制问题，如果你是Windows系统，主要要使用以管理员方式安装</p>
 <pre><code>更新webpack   1.如果是新项目，给node_modules删除，重新下载 
               2.如果老旧项目，有依赖包，现在package.json给webpack的版本给改了，然后再把                           node_modules删除，然后重新下载就可以了
 </code></pre><h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><h1 id="4-建立基本项目结构-————-在根目录建立两个文件夹，分别是src文件夹和dist文件夹"><a href="#4-建立基本项目结构-————-在根目录建立两个文件夹，分别是src文件夹和dist文件夹" class="headerlink" title="4.建立基本项目结构 ————-在根目录建立两个文件夹，分别是src文件夹和dist文件夹"></a>4.建立基本项目结构 ————-在根目录建立两个文件夹，分别是src文件夹和dist文件夹</h1><p>src文件夹：用来存放我们编写的javascript，css代码，可以简单的理解为用JavaScript编写的模块。</p>
@@ -119,72 +119,45 @@ cd webpack_demo 进入这个文件夹
                    //配置webpack开发服务功能
                    devServer:{}
                }
- (2) entry选项（入口配置）
-
-       //入口文件的配置项
-
+</code></pre><p>(2) entry选项（入口配置）</p>
+<pre><code>//入口文件的配置项
+entry:{
+//里面的entry是可以随便命名的，我们以文件名为准
+   entry:__dirname+&apos;/src/entry.js&apos;      两个杠
+  },
+</code></pre><p>（3）output选项（出口配置）– 出口配置是用来告诉webpack最后打包文件的地址和文件名称的</p>
+<pre><code>//出口文件的配置项
+output:{
+//打包的路径位置（记住就行，node知识）
+path:__dirname+&apos;/dist&apos;,     --&gt;获取了项目的绝对路径
+//打包的文件名称
+filename:&apos;bundle.js&apos;             --filename:是打包后的文件名称，这里我们起名为bundle.js
+},
+</code></pre><p>（4） 我们要在webpack.config.js的头部引入path 否则会找不到path而报错</p>
+<pre><code>const path = require(&apos;path&apos;);     
+</code></pre><p>（5） 在终端直接输入webpack 就可以打包了</p>
+<p>（6） 多入口、多出口配置</p>
+<pre><code>       //入口文件的配置项
         entry:{
-
-      //里面的entry是可以随便命名的，我们以文件名为准
-
-        entry:__dirname+&apos;/src/entry.js&apos;      两个杠
-
+           entry:&apos;./src/entry.js&apos;,
+           //这里我们又引入了一个入口文件
+           entry2:&apos;./src/entry2.js&apos;
          },
+         //出口文件的配置项
+        output:{
+        //输出的路径，用了Node语法 -- 这句话不变，只改变下面的 filename
+        path:path.resolve(__dirname,&apos;dist&apos;),
+         //输出的文件名称
+        filename:&apos;[name].js&apos;
+           },
 
-
-（3）output选项（出口配置）-- 出口配置是用来告诉webpack最后打包文件的地址和文件名称的
-
-       //出口文件的配置项
-
-          output:{
-
-      //打包的路径位置（记住就行，node知识）
-
-          path:__dirname+&apos;/dist&apos;,     --&gt;获取了项目的绝对路径
-
-      //打包的文件名称
-
-          filename:&apos;bundle.js&apos;             --filename:是打包后的文件名称，这里我们起名为bundle.js
-
-        },
-
-   （4） 我们要在webpack.config.js的头部引入path 否则会找不到path而报错
-
-             const path = require(&apos;path&apos;);     
-
-   （5） 在终端直接输入webpack 就可以打包了
-
-   （6） 多入口、多出口配置
-
-         //入口文件的配置项
-
-            entry:{
-
-                  entry:&apos;./src/entry.js&apos;,
-
-               //这里我们又引入了一个入口文件
-
-                  entry2:&apos;./src/entry2.js&apos;
-
-            },
-
-              //出口文件的配置项
-
-            output:{
-
-              //输出的路径，用了Node语法 -- 这句话不变，只改变下面的 filename
-
-                   path:path.resolve(__dirname,&apos;dist&apos;),
-
-             //输出的文件名称
-
-                   filename:&apos;[name].js&apos;
-             },
-
-             [name]的意思是根据入口文件的名称，打包成相同的名称，有几个入口文件，就可以打包出几个文件
+[name]的意思是根据入口文件的名称，打包成相同的名称，有几个入口文件，就可以打包出几个文件
 </code></pre><h1 id="6-配置文件：-服务和热更新-–-所见即所得"><a href="#6-配置文件：-服务和热更新-–-所见即所得" class="headerlink" title="6. 配置文件： 服务和热更新  – 所见即所得"></a>6. 配置文件： 服务和热更新  – 所见即所得</h1><p> ( 一个屏幕编写代码，一个屏幕实时显示页面效果 )</p>
-<pre><code>（1） cnpm install webpack-dev-server -save-dev  来进行下载 -- 配置一下devServer 
-     在 webpack.config.js文件里   
+<p>（1） 下载 – 配置一下devServer </p>
+<pre><code>cnpm install webpack-dev-server -save-dev  
+
+
+ 在 webpack.config.js文件里 
 
      devServer:{
                   //设置基本目录结构--》 用于找到程序打包地址
@@ -196,28 +169,19 @@ cd webpack_demo 进入这个文件夹
                  //配置服务端口号---》建议不使用80，很容易被占用，这里使用了1717
              port:1717
          }
-（2） 本地安装 webpack-dev-server
+</code></pre><p>（2） 本地安装 webpack-dev-server</p>
+<pre><code>cnpm install webpack-dev-server --save-dev
+</code></pre><p> （3）在package.json里配置一下scripts选项  </p>
+<pre><code>&quot;scripts&quot;: { 
+     &quot;server&quot;:&quot;webpack-dev-server&quot;
+  },
+  配置好保存后，在终端里输入 npm run server  打开服务器
 
-     cnpm install webpack-dev-server --save-dev
-
-（3）在package.json里配置一下scripts选项
-
-     &quot;scripts&quot;: {
-
-           &quot;server&quot;:&quot;webpack-dev-server&quot;
-     },
-
-     配置好保存后，在终端里输入 npm run server  打开服务器
-
-   在浏览器地址栏输入http://localhost:1717就可以看到结果了
-
-（4）加入热更新插件
-
-   const webpack = require(&apos;webpack&apos;);
-   new webpack.HotModuleReplacementPlugin()
-
-   npm run server  启动-----成功！！！！
-</code></pre><h1 id="7-模块：CSS文件打包-非常重要！！！！！！"><a href="#7-模块：CSS文件打包-非常重要！！！！！！" class="headerlink" title="7. 模块：CSS文件打包   非常重要！！！！！！"></a>7. 模块：CSS文件打包   非常重要！！！！！！</h1><p>（1）Loaders 是Webpack最重要的功能之一，通过使用不同的Loader，对不同的文件格式进行特定处理</p>
+  在浏览器地址栏输入http://localhost:1717就可以看到结果了
+</code></pre><p> （4）加入热更新插件</p>
+<pre><code>const webpack = require(&apos;webpack&apos;);
+new webpack.HotModuleReplacementPlugin()
+</code></pre><h4 id="npm-run-server-启动—–成功！！！！"><a href="#npm-run-server-启动—–成功！！！！" class="headerlink" title="npm run server  启动—–成功！！！！"></a>npm run server  启动—–成功！！！！</h4><h1 id="7-模块：CSS文件打包-非常重要！！！！！！"><a href="#7-模块：CSS文件打包-非常重要！！！！！！" class="headerlink" title="7. 模块：CSS文件打包   非常重要！！！！！！"></a>7. 模块：CSS文件打包   非常重要！！！！！！</h1><p>（1）Loaders 是Webpack最重要的功能之一，通过使用不同的Loader，对不同的文件格式进行特定处理</p>
 <p>​        可以把SASS文件的写法转换成CSS，而不在使用其他转换工具。</p>
 <p>​        可以把ES6或者ES7的代码，转换成大多浏览器兼容的JS代码。</p>
 <p>​        可以把React中的JSX转换成JavaScript代码</p>
@@ -227,41 +191,39 @@ cd webpack_demo 进入这个文件夹
 <p>include/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）；</p>
 <p> query：为loaders提供额外的设置选项（可选）</p>
 <p>（2）打包CSS文件</p>
-<pre><code>建立index.css文件--》要打包CSS你必须先要有个CSS文件，在/src目录下，我们建立一个css文件夹，在       文件夹里建立index.css文件
-
-CSS文件建立好后，需要引入到入口文件中，才可以打包到，这里我们引入到entry.js中
-
-import css from &apos;./css/index.css&apos;;
-
-我们需要使用loader来解析CSS文件，这里我们需要两个解析用的loader，分别是style-loader和
-css- loader
-</code></pre><p>​       style-loader:用来处理css文件中的url()等—-&gt; cnpm install style-loader –save-dev  进行安装</p>
-<p>​       css-loader：用来将css插入到页面的style标签—-&gt; cnpm install css-loader –save-dev  </p>
-<p>​       (3) loaders配置   webpack.config.js</p>
+<p>建立index.css文件–》要打包CSS你必须先要有个CSS文件，在/src目录下，我们建立一个css文件夹，在文件夹里建立index.css文件</p>
+<p> CSS文件建立好后，需要引入到入口文件中，才可以打包到，这里我们引入到entry.js中</p>
+<pre><code>import css from &apos;./css/index.css&apos;;
+</code></pre><p>我们需要使用loader来解析CSS文件，这里我们需要两个解析用的loader，分别是style-loader和css- loader</p>
+<p>style-loader:用来处理css文件中的url()等—-&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install style-loader --save-dev  进行安装</span><br></pre></td></tr></table></figure>
+<p>css-loader：用来将css插入到页面的style标签—-&gt; </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install css-loader --save-dev</span><br></pre></td></tr></table></figure>
+<p>​ (3) loaders配置   webpack.config.js</p>
 <pre><code>module:{
-        rules: [
-           {
-             test: /\.css$/,
-             use: [ &apos;style-loader&apos;, &apos;css-loader&apos; ]
-            // loader:[&apos;style-loader&apos;,&apos;css-loader&apos;]
-            //  use: [
-                     {
-                      loader: &quot;style-loader&quot;
-                     }, {
-                      loader: &quot;css-loader&quot;
-                     }
-                   ]                   三种写法任意一种都行
-         }
+rules: [
+    {
+    test: /\.css$/,
+    use: [ &apos;style-loader&apos;, &apos;css-loader&apos; ]
+    // loader:[&apos;style-loader&apos;,&apos;css-loader&apos;]
+    //  use: [
+    {
+    loader: &quot;style-loader&quot;
+    }, {
+    loader: &quot;css-loader&quot;
+    }
+    ]                   三种写法任意一种都行
+    }
 
-     ]
+]
 }
-</code></pre><p>—————————————下面的压缩不要着急，生产环境中才需要———————————————————-</p>
+</code></pre><p>—————————————<strong>下面的压缩不要着急，生产环境中才需要</strong>———————————————————-</p>
 <h1 id="8-压缩JS代码-—-讲插件"><a href="#8-压缩JS代码-—-讲插件" class="headerlink" title="8.压缩JS代码 — 讲插件"></a>8.压缩JS代码 — 讲插件</h1><p> uglifyjs-webpack-plugin(JS压缩插件，简称uglify)—注意：虽然uglifyjs是插件，但是webpack版本里默认已经集成，不需要再次安装</p>
 <p>（1）引入：在webpack.config.js顶部， </p>
-<pre><code>      const uglify = require(&apos;uglifyjs-webpack-plugin&apos;);
-                plugins:[
-                    new uglify()
-                ],  
+<pre><code>const uglify = require(&apos;uglifyjs-webpack-plugin&apos;);
+plugins:[
+new uglify()
+],  
 uglifyjs-webpack-plugin本来已经集成在webpack里不需要下载了，但是我的window7不行，需要先下载，
 再webpack打包
 </code></pre><p>（2）  用于下载  uglifyjs-webpack-plugin 插件，压缩js代码   </p>
@@ -288,32 +250,30 @@ uglifyjs-webpack-plugin本来已经集成在webpack里不需要下载了，但�
 <p>（4） 在终端中使用webpack，进行打包 ==&gt;index.html文件已经被打包到我们的dist目录下了，并且自动为我们引入了路口的JS文件</p>
 <h4 id="！！！-记住在loader使用时不需要用require引入，在plugins才需要使用require引入"><a href="#！！！-记住在loader使用时不需要用require引入，在plugins才需要使用require引入" class="headerlink" title="！！！  记住在loader使用时不需要用require引入，在plugins才需要使用require引入"></a>！！！  记住在loader使用时不需要用require引入，在plugins才需要使用require引入</h4><h1 id="11-图片迈坑："><a href="#11-图片迈坑：" class="headerlink" title="11. 图片迈坑："></a>11. <strong>图片迈坑</strong>：</h1><p>CSS中的图片处理(有的小伙伴在开发环境中是可以找到图片的，但是一打包后就找不到图片了，</p>
 <p>有的小伙伴是不知道如何正确引入html或者css中的图片，导致程序出错)</p>
-<pre><code>（1）在src目录下新建一个images文件夹，把图片放入images文件夹
-
-（2）编写css文件，把你用的图片作为背景显示，引入图片
-
-（3）安装file-loader和url-loader                     
- cnpm install --save-dev file-loader url-loader
-</code></pre><p>  （4）配置url-loader  （注意use数组里面是对象）</p>
+<p>（1）在src目录下新建一个images文件夹，把图片放入images文件夹</p>
+<p>（2）编写css文件，把你用的图片作为背景显示，引入图片</p>
+<p>（3）安装file-loader和url-loader</p>
+<pre><code>cnpm install --save-dev file-loader url-loader
+</code></pre><p> （4）配置url-loader  （注意use数组里面是对象）</p>
 <pre><code>module:{
-   rules: [
-      {
-        test: /\.css$/,
-        use: [ &apos;style-loader&apos;, &apos;css-loader&apos; ]
-      },{
-        test:/\.(png|jpg|gif)/ ,
-        use:[{
-            loader:&apos;url-loader&apos;,
-            options:{
-               limit:500000
-             }
-         }]
-       }
-   ]
- },
+    rules: [
+    {
+    test: /\.css$/,
+    use: [ &apos;style-loader&apos;, &apos;css-loader&apos; ]
+    },{
+    test:/\.(png|jpg|gif)/ ,
+    use:[{
+    loader:&apos;url-loader&apos;,
+    options:{
+    limit:500000
+    }
+    }]
+    }
+    ]
+},
 </code></pre><p>  test:/.(png|jpg|gif)/是匹配图片文件后缀名称。<br>  use：是指定使用的loader和loader的配置参数。<br>  limit：是把小于500000B的文件打成Base64的格式，写入JS   </p>
 <p>（5）使用webpack进行打包</p>
-<p>​        <strong>题外话：为什么只使用了url-loader？</strong></p>
+<p>​   <strong>题外话：为什么只使用了url-loader？</strong></p>
 <pre><code>url-loader封装了file-loader   url-loader不依赖于file-loader
 即使用url-loader时，只需要安装url-loader即可，不需要安装file-loader
 因为url-loader内置了file-loader
@@ -324,47 +284,52 @@ uglifyjs-webpack-plugin本来已经集成在webpack里不需要下载了，但�
 </code></pre><p>  url-loader：如果图片较多，会发很多http请求，会降低页面性能。这个问题可以通过url-loader解决。url-loader会将引入的图片编码，生成dataURl。<br>    相当于把图片数据翻译成一串字符。再把这串字符打包到文件中，最终只需要引入这个文件就能访问图片了。当然，如果图片较大，编码会消耗性能。<br>    因此url-loader提供了一个limit参数，小于limit字节的文件会被转为DataURl，大于limit的还会使用file-loader进行copy。  </p>
 <h1 id="12-CSS分离与图片路径处理"><a href="#12-CSS分离与图片路径处理" class="headerlink" title="12. CSS分离与图片路径处理"></a>12. CSS分离与图片路径处理</h1><p>（我们生成的dist文件里面把css和js融合到一起了，项目组长会要求把CSS单独提取出来，方便以后更改</p>
 <p><strong>第一个是把CSS从JavasScript代码中分离出来，第二个是如何处理分离出来后CSS中的图片路径不对问题</strong></p>
-<pre><code>（1）extract-text-webpack-plugin 插件解决分离问题
-
-    cnpm install --save-dev extract-text-webpack-plugin
+<p>（1）extract-text-webpack-plugin 插件解决分离问题</p>
+<pre><code>cnpm install --save-dev extract-text-webpack-plugin
 
 （2）const extractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+</code></pre><p> （3）设置Plugins</p>
+<pre><code>new extractTextPlugin(&quot;/css/index.css&quot;)   ---  这里的/css/index.css是分离后的路径位置
 
-（3）设置Plugins
+  （4）包装代码：修改原来我们的style-loader和css-loader。 
 
-    new extractTextPlugin(&quot;/css/index.css&quot;)   ---  这里的/css/index.css是分离后的路径位置
-
-（4）包装代码：修改原来我们的style-loader和css-loader。 
-  module:{       
-         rules: [           
-               {
-                 test: /\.css$/,                     
-                 use: extractTextPlugin.extract({       
-                                    fallback: &quot;style-loader&quot;,       
-                                    use: &quot;css-loader&quot;
-                 })
-              },{
-                 test:/\.(png|jpg|gif)/ ,
-                 use:[{
-                     loader:&apos;url-loader&apos;,
-                     options:{         
-                       limit:5000，
-                       outputPath:&apos;images/&apos;
-                     }
-                 }]
-              }
-       ]
-    },
+    module:{       
+           rules: [           
+                 {
+                   test: /\.css$/,                     
+                   use: extractTextPlugin.extract({       
+                                      fallback: &quot;style-loader&quot;,       
+                                      use: &quot;css-loader&quot;
+                   })
+                },{
+                   test:/\.(png|jpg|gif)/ ,
+                   use:[{
+                       loader:&apos;url-loader&apos;,
+                       options:{         
+                         limit:5000，
+                         outputPath:&apos;images/&apos;
+                       }
+                   }]
+                }
+         ]
+      },
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">（5）分离成功，解决图片路径问题：</span><br><span class="line"></span><br><span class="line">        publicPath：是在webpack.config.js文件的output选项中，主要作用就是处理静态文件路径的。</span><br><span class="line"></span><br><span class="line">       在处理前，我们在webpack.config.js 上方声明一个对象，叫website</span><br><span class="line"></span><br><span class="line">         var website =&#123;</span><br><span class="line">                  publicPath:&quot;http://192.168.0.108:1717/&quot;</span><br><span class="line">         &#125;;</span><br><span class="line">       这里的IP和端口，是你本机的ip或者是你devServer配置的IP和端口</span><br><span class="line"></span><br><span class="line">        output:&#123;</span><br><span class="line">               path:path.resolve(__dirname,&apos;dist&apos;),</span><br><span class="line">               filename:&apos;[name].js&apos;,</span><br><span class="line">               publicPath:website.publicPath</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（6）打包完成 webpack</span><br></pre></td></tr></table></figure>
+<p>（6）打包完成 webpack</p>
 <p><strong>解决小问题：</strong></p>
-<pre><code>1.只有项目安装webpack，如何打包？-- 就是没有进行全局安装webpack,没办法用webpack进行直接打包      
-      &quot;scripts&quot;: {
-               &quot;server&quot;: &quot;webpack-dev-server --open&quot;,
-               &quot;build&quot;:&quot;webpack&quot;
-           },
-        在控制台输入npm run build 进行打包
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2. 打包后的图片并没有放到images文件夹下，要放到images文件夹下,其实只需要配置我们的url-loader选项</span><br><span class="line"></span><br><span class="line">         options:&#123;</span><br><span class="line">                  limit:5000,</span><br><span class="line">                  outputPath:&apos;images/&apos;,     !!!!!</span><br><span class="line">              &#125;</span><br></pre></td></tr></table></figure>
+<p>  1.只有项目安装webpack，如何打包？– 就是没有进行全局安装webpack,没办法用webpack进行直接打包      </p>
+<pre><code>&quot;scripts&quot;: {
+         &quot;server&quot;: &quot;webpack-dev-server --open&quot;,
+         &quot;build&quot;:&quot;webpack&quot;
+     },
+  在控制台输入npm run build 进行打包
+</code></pre><ol>
+<li><p>打包后的图片并没有放到images文件夹下，要放到images文件夹下,其实只需要配置我们的url-loader选项</p>
+<pre><code>options:{
+         limit:5000,
+         outputPath:&apos;images/&apos;,     !!!!!
+     }
+</code></pre></li>
+</ol>
 <h1 id="13-图片迈坑："><a href="#13-图片迈坑：" class="headerlink" title="13 . 图片迈坑："></a>13 . 图片迈坑：</h1><p>处理HTML中的图片—&gt; 解决的问题就是在hmtl文件中引入<img>标签的问题</p>
 <p>  (1) 安装html-withimg-loader插件</p>
 <pre><code>cnpm install html-withimg-loader --save
@@ -375,65 +340,68 @@ uglifyjs-webpack-plugin本来已经集成在webpack里不需要下载了，但�
 }
 </code></pre><p>   （3）打包–进行查看打包图片和地址是否正确</p>
 <h1 id="14-CSS进阶：Less文件的打包和分离"><a href="#14-CSS进阶：Less文件的打包和分离" class="headerlink" title="14.CSS进阶：Less文件的打包和分离"></a>14.CSS进阶：Less文件的打包和分离</h1><p> Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。 也就是说Less给我们枯燥单一的样式文件加入了编程机制，这让我们这些前端程序员很受用，所以在工作中大部分程序员都使用了Less开发</p>
-<p>   （1）打包Less文件</p>
-<pre><code>   npm install --save-dev less
-
-（2）安装Less-loader用来打包
-
-   npm install --save-dev less-loader
-
-（3）写loader配置
-
-   {
-     test: /\.less$/,
-     use: [{
-            loader: &quot;style-loader&quot;   // creates style nodes from JS strings
-           }, {
-            loader: &quot;css-loader&quot;    // translates CSS into CommonJS 
-          }，{
-            loader: &quot;less-loader&quot;   // compiles Less to CSS
-      }]
-   }
+<p>（1）打包Less文件</p>
+<pre><code>npm install --save-dev less
+</code></pre><p>（2）安装Less-loader用来打包</p>
+<pre><code>npm install --save-dev less-loader
+</code></pre><p>（3）写loader配置</p>
+<pre><code>{
+  test: /\.less$/,
+  use: [{
+         loader: &quot;style-loader&quot;   // creates style nodes from JS strings
+        }, {
+         loader: &quot;css-loader&quot;    // translates CSS into CommonJS 
+       }，{
+         loader: &quot;less-loader&quot;   // compiles Less to CSS
+   }]
+}
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">（4）编写一个less文件   black.less</span><br><span class="line"></span><br><span class="line">     @base :#000;</span><br><span class="line">     #gogo&#123;</span><br><span class="line">            width:300px;</span><br><span class="line">            height:300px;</span><br><span class="line">            background-color:@base;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（5）引入到我们entry.js文件中</span><br><span class="line"></span><br><span class="line">      import less from &apos;./css/black.less&apos;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（6）打包</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（7） 把Lees文件和js分离</span><br><span class="line"></span><br><span class="line">  extract-text-webpack-plugin 插件 和css分离方法一样，如果之前进行了css的分离，这一步就省略了即可</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">（8） less的loader配置方法</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.less$/,</span><br><span class="line">            use: extractTextPlugin.extract(&#123;</span><br><span class="line">                                    use: [&#123;</span><br><span class="line">                                         loader: &quot;css-loader&quot;</span><br><span class="line">                                         &#125;, &#123;</span><br><span class="line">                                         loader: &quot;less-loader&quot;</span><br><span class="line">                                      &#125;],</span><br><span class="line">        </span><br><span class="line">                                    fallback: &quot;style-loader&quot;</span><br><span class="line">              &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      你会发现less被分离到了index.css文件里----&gt; 转换成css语</span><br></pre></td></tr></table></figure>
+<p>（6）打包</p>
+<p>（7） 把Lees文件和js分离 extract-text-webpack-plugin 插件 和css分离方法一样，如果之前进行了css的分离，这一步就省略了即可</p>
+<p>（8） less的loader配置方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">         test: /\.less$/,</span><br><span class="line">         use: extractTextPlugin.extract(&#123;</span><br><span class="line">                                 use: [&#123;</span><br><span class="line">                                      loader: &quot;css-loader&quot;</span><br><span class="line">                                      &#125;, &#123;</span><br><span class="line">                                      loader: &quot;less-loader&quot;</span><br><span class="line">                                   &#125;],</span><br><span class="line">     </span><br><span class="line">                                 fallback: &quot;style-loader&quot;</span><br><span class="line">           &#125;)</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">   你会发现less被分离到了index.css文件里----&gt; 转换成css语</span><br></pre></td></tr></table></figure>
 <h1 id="15-CSS进阶：SASS文件的打包和分离"><a href="#15-CSS进阶：SASS文件的打包和分离" class="headerlink" title="15. CSS进阶：SASS文件的打包和分离"></a>15. CSS进阶：SASS文件的打包和分离</h1><p> （1）安装node-sass和sass-loader</p>
 <pre><code>npm install --save-dev node-sass
 
 npm install --save-dev sass-loader
 </code></pre><p>注意：在用npm安装时，这个loader很容易安装失败，最好使用cnpm来进行安装。如果你安装一直报错，最好是把node_modules文件夹删除后，再重新安装</p>
-<pre><code>（2）编写loader配置   ----&gt; 需要注意的是loader的加载要有先后顺序
-
-   {
-        test: /\.scss$/,
-        use: [{
-            loader: &quot;style-loader&quot; // creates style nodes from JS strings
-        }, {
-            loader: &quot;css-loader&quot; // translates CSS into CommonJS
-        }, {
-            loader: &quot;sass-loader&quot; // compiles Sass to CSS
-        }]
-  }
+<p>（2）编写loader配置   —-&gt; 需要注意的是loader的加载要有先后顺序</p>
+<pre><code> {
+      test: /\.scss$/,
+      use: [{
+          loader: &quot;style-loader&quot; // creates style nodes from JS strings
+      }, {
+          loader: &quot;css-loader&quot; // translates CSS into CommonJS
+      }, {
+          loader: &quot;sass-loader&quot; // compiles Sass to CSS
+      }]
+}
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(3) Sass文件的编写,并且引入到entry.js中  （有两种后缀， .scss和.sass）</span><br><span class="line"></span><br><span class="line">         $nav-color: #FFF;</span><br><span class="line">         #nav &#123;</span><br><span class="line">              $width: 100%;</span><br><span class="line">              width: $width;</span><br><span class="line">              height:30px;</span><br><span class="line">              background-color: $nav-color;</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(4) 把SASS文件分离 (和less一样)</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.scss$/,</span><br><span class="line">        use: extractTextPlugin.extract(&#123;</span><br><span class="line">            use: [&#123;</span><br><span class="line">                loader: &quot;css-loader&quot;</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                loader: &quot;sass-loader&quot;</span><br><span class="line">            &#125;],</span><br><span class="line">            fallback: &quot;style-loader&quot;</span><br><span class="line">        &#125;)</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="16-CSS进阶：自动处理CSS3属性前缀—–成功！！"><a href="#16-CSS进阶：自动处理CSS3属性前缀—–成功！！" class="headerlink" title="16.CSS进阶：自动处理CSS3属性前缀—–成功！！"></a>16.CSS进阶：自动处理CSS3属性前缀—–成功！！</h1><pre><code>为了浏览器的兼容性，有时候我们必须加入-webkit,-ms,-o,-moz这些前缀。目的就是让我们写的页面在每个浏览器中都可以顺利运行
- PostCSS是一个CSS的处理平台，它可以帮助你的CSS实现-&gt;更多的功能&lt;-，但是今天我们就通过(其中的一个)加前缀的功能
+<h1 id="16-CSS进阶：自动处理CSS3属性前缀—–成功！！"><a href="#16-CSS进阶：自动处理CSS3属性前缀—–成功！！" class="headerlink" title="16.CSS进阶：自动处理CSS3属性前缀—–成功！！"></a>16.CSS进阶：自动处理CSS3属性前缀—–成功！！</h1><p>为了浏览器的兼容性，有时候我们必须加入-webkit,-ms,-o,-moz这些前缀。目的就是让我们写的页面在每个浏览器中都可以顺利运行</p>
+<p>PostCSS是一个CSS的处理平台，它可以帮助你的CSS实现-&gt;更多的功能&lt;-，但是今天我们就通过(其中的一个)加前缀的功能</p>
+<p>   (1) 安装两个包postcss-loader 和autoprefixer （自动添加前缀的插件）</p>
+<pre><code>cnpm install --save-dev postcss-loader autoprefixer
+</code></pre><p>   (2) postCSS推荐在项目根目录（和webpack.config.js同级），建立一个postcss.config.js文件</p>
+<pre><code>module.exports = {
+             plugins: [
+                  require(&apos;autoprefixer&apos;)({browsers:&apos;last 5 version&apos;})
+            ]
+ }    //这就是对postCSS一个简单的配置，引入了autoprefixer插件 （三种形式）
+</code></pre><p>(3) 提取CSS   —  配置提取CSS的loader配置.</p>
+<pre><code>{
+     test: /\.css$/,
+     use: extractTextPlugin.extract({
+                         fallback: &apos;style-loader&apos;,
+                         use: [
+                                { loader: &apos;css-loader&apos;, options: { importLoaders: 1 } },
+                                &apos;postcss-loader&apos;
+                         ]
+      })
 
-(1) 安装两个包postcss-loader 和autoprefixer （自动添加前缀的插件）
-
-    cnpm install --save-dev postcss-loader autoprefixer
-
-(2) postCSS推荐在项目根目录（和webpack.config.js同级），建立一个postcss.config.js文件
-
-   module.exports = {
-                plugins: [
-                     require(&apos;autoprefixer&apos;)({browsers:&apos;last 5 version&apos;})
-               ]
-    }    //这就是对postCSS一个简单的配置，引入了autoprefixer插件 （三种形式）
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(3) 提取CSS   ---  配置提取CSS的loader配置.</span><br><span class="line"></span><br><span class="line">      &#123;</span><br><span class="line">           test: /\.css$/,</span><br><span class="line">           use: extractTextPlugin.extract(&#123;</span><br><span class="line">                               fallback: &apos;style-loader&apos;,</span><br><span class="line">                               use: [</span><br><span class="line">                                      &#123; loader: &apos;css-loader&apos;, options: &#123; importLoaders: 1 &#125; &#125;,</span><br><span class="line">                                      &apos;postcss-loader&apos;</span><br><span class="line">                               ]</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="17-CSS进阶：消除未使用的CSS"><a href="#17-CSS进阶：消除未使用的CSS" class="headerlink" title="17  CSS进阶：消除未使用的CSS"></a>17  CSS进阶：消除未使用的CSS</h1><p>（像Bootstrap这样的框架往往会带有很多CSS，消除我们没有用到的部分）</p>
+}
+</code></pre><h1 id="17-CSS进阶：消除未使用的CSS"><a href="#17-CSS进阶：消除未使用的CSS" class="headerlink" title="17  CSS进阶：消除未使用的CSS"></a>17  CSS进阶：消除未使用的CSS</h1><p>（像Bootstrap这样的框架往往会带有很多CSS，消除我们没有用到的部分）</p>
 <p>（1）安装PurifyCSS-webpack   purify-css  —-&gt;  PurifyCSS-webpack要依赖于purify-css这个包，所以这两个都需要安装</p>
 <pre><code>cnpm i -D purifycss-webpack purify-css       --- &gt; -D代表的是–save-dev
 </code></pre><p> (2) 引入glob , purifycss-webpack (因为我们需要同步检查html模板，所以我们需要引入node的glob对象使用)</p>
@@ -462,34 +430,24 @@ const PurifyCSSPlugin = require(&quot;purifycss-webpack&quot;);
   exclude:/node_modules/
 }
 </code></pre><p> 虽然Babel可以直接在webpack.config.js中进行配置，但是考虑到babel具有非常多的配置选项，如果卸载  webapck.config.js中会非常的雍长不可阅读， 所以我们经常把配置卸载.babelrc文件里</p>
-<p>  (√√)优化上面的配置，新写法：（1）在项目根目录新建.babelrc文件，并把配置写到文件里</p>
-<pre><code>  {
-     &quot;presets&quot;:[&quot;react&quot;,&quot;es2015&quot;]
-  }
-
-（2）.webpack.config.js里的loader配置
-
-      {
-       test:/\.(jsx|js)$/,
-       use:{
-            loader:&apos;babel-loader&apos;,
-        },
-        exclude:/node_modules/
-      }
-</code></pre><p>  现在网络上已经不流行babel-preset-es2015，现在官方推荐使用的是babel-preset-env</p>
+<p>  (√√)优化上面的配置，新写法：</p>
+<p>（1）在项目根目录新建.babelrc文件，并把配置写到文件里</p>
+<pre><code>{
+&quot;presets&quot;:[&quot;react&quot;,&quot;es2015&quot;]
+}
+</code></pre><p>  （2）.webpack.config.js里的loader配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test:/.(jsx|js)$/,</span><br><span class="line">    use:&#123;</span><br><span class="line">    loader:&apos;babel-loader&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">    exclude:/node_modules/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在网络上已经不流行babel-preset-es2015，现在官方推荐使用的是babel-preset-env</p>
 <p>   （1）下载ENV  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-preset-env</span><br></pre></td></tr></table></figure>
-<pre><code>(2) 然后修改.babelrc里的配置文件---- 把之前的es2015换成env就可以
-
-      {
-          &quot;presets&quot;:[&quot;react&quot;,&quot;env&quot;]
-      }
+<p>(2) 然后修改.babelrc里的配置文件—- 把之前的es2015换成env就可以</p>
+<pre><code>{
+&quot;presets&quot;:[&quot;react&quot;,&quot;env&quot;]
+}
 
 Babel的配置文件分解出来是最好的选择
-</code></pre><h1 id="19-打包后如何调试—-gt-Source-Maps来方便我们的调试"><a href="#19-打包后如何调试—-gt-Source-Maps来方便我们的调试" class="headerlink" title="19 . 打包后如何调试—&gt;Source Maps来方便我们的调试"></a>19 . 打包后如何调试—&gt;Source Maps来方便我们的调试</h1><h3 id="注意：source-map只适用于开发阶段，上线前记得修改这些调试设置！！！！！！"><a href="#注意：source-map只适用于开发阶段，上线前记得修改这些调试设置！！！！！！" class="headerlink" title="注意：source map只适用于开发阶段，上线前记得修改这些调试设置！！！！！！"></a><strong>注意：source map只适用于开发阶段，上线前记得修改这些调试设置！！！！！！</strong></h3><pre><code>在使用webpack时只要通过简单的devtool配置，webapck就会自动给我们生产source maps 文件，
-map文件是一种对应编译文件和源文件的方法，让我们调试起来更简单
-在配置devtool时，webpack给我们提供了四种选项
-</code></pre><p>（1）source-map:在一个单独文件中产生一个完整且功能完全的文件。这个文件具有最好的source map,但是它   会减慢打包速度</p>
+</code></pre><h1 id="19-打包后如何调试—-gt-Source-Maps来方便我们的调试"><a href="#19-打包后如何调试—-gt-Source-Maps来方便我们的调试" class="headerlink" title="19 . 打包后如何调试—&gt;Source Maps来方便我们的调试"></a>19 . 打包后如何调试—&gt;Source Maps来方便我们的调试</h1><h3 id="注意：source-map只适用于开发阶段，上线前记得修改这些调试设置！！！！！！"><a href="#注意：source-map只适用于开发阶段，上线前记得修改这些调试设置！！！！！！" class="headerlink" title="注意：source map只适用于开发阶段，上线前记得修改这些调试设置！！！！！！"></a><strong>注意：source map只适用于开发阶段，上线前记得修改这些调试设置！！！！！！</strong></h3><p>在使用webpack时只要通过简单的devtool配置，webapck就会自动给我们生产source maps 文件，map文件是一种对应编译文件和源文件的方法，让我们调试起来更简单，在配置devtool时，webpack给我们提供了四种选项</p>
+<p>（1）source-map:在一个单独文件中产生一个完整且功能完全的文件。这个文件具有最好的source map,但是它   会减慢打包速度</p>
 <p>（2）cheap-module-source-map：不带列映射提高了打包速度，不能对应到具体的列（符号）,会对调试造成不  便</p>
 <p>（3）eval-source-map:使用eval打包源文件模块，在同一个文件中生产干净的完整版的sourcemap，但是对打包后输出的JS文件的执行具有性能和安全的隐患。</p>
 <pre><code>在开发阶段这是一个非常好的选项，在生产阶段则一定要不开启这个选项
@@ -515,18 +473,17 @@ map文件是一种对应编译文件和源文件的方法，让我们调试起�
   3.  npm install jquery --save-dev 它存在于package.json的devDependencies中，也就是说它是开发环境中                                     需要的，上线并不需要这个包的依赖
 
 (3) 安装全部项目依赖包：  npm install
-
-    安装生产环境依赖包：  npm install --production
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var website=&#123;        </span><br><span class="line">   publicPath:&quot;http://192.168.0.108:1717/&quot; </span><br><span class="line">   &#125; </span><br><span class="line">   修改package.json命令:     </span><br><span class="line">   &quot;scripts&quot;: &#123;              </span><br><span class="line">            &quot;server&quot;: &quot;webpack-dev-server --open&quot;,                            </span><br><span class="line">            &quot;dev&quot;:&quot;set type=dev&amp;webapck&quot;,                             </span><br><span class="line">            &quot;build&quot;: &quot;set type=build&amp;webpack&quot;       </span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+    安装生产环境依赖包：  npm install --production   
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var website=&#123;        </span><br><span class="line">   publicPath:&quot;http://192.168.0.108:1717/&quot; </span><br><span class="line">   &#125; </span><br><span class="line">   修改package.json命令:     </span><br><span class="line">   &quot;scripts&quot;: &#123;              </span><br><span class="line">            &quot;server&quot;: &quot;webpack-dev-server --open&quot;,                            </span><br><span class="line">            &quot;dev&quot;:&quot;set type=dev&amp;webapck&quot;,                             </span><br><span class="line">            &quot;build&quot;: &quot;set type=build&amp;webpack&quot;       </span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 <p>   修改webpack.config.js文件</p>
-<pre><code> if(process.env.type== &quot;build&quot;){
-     var website={
-         publicPath:&quot;http://192.168.0.108:1717/&quot;
-     }
-}else{
-    var website={
-          publicPath:&quot;http://cdn.jspang.com/&quot;
-   }
+<pre><code>if(process.env.type== &quot;build&quot;){
+      var website={
+      publicPath:&quot;http://192.168.0.108:1717/&quot;
+      }
+      }else{
+      var website={
+      publicPath:&quot;http://cdn.jspang.com/&quot;
+      }
 }
 </code></pre><h1 id="21-实战技巧：webpack模块化配置"><a href="#21-实战技巧：webpack模块化配置" class="headerlink" title="21. 实战技巧：webpack模块化配置"></a>21. 实战技巧：webpack模块化配置</h1><p>把开发环境的写到一个模块中，把生产环境的写到一个模块中</p>
 <p>   先了解JS的模块化实现：</p>
@@ -637,7 +594,6 @@ new webpack.BannerPlugin(&apos;JSPang版权所有，看官方免费视频到jspa
 <pre><code>&lt;div id=&quot;json&quot;&gt;&lt;/div&gt;
 </code></pre><p>2.到src文件夹下，找到入口文件，我这里是entry.js文件</p>
 <pre><code>var json =require(&apos;../config.json&apos;);   第一行是引入我们的json文件
-
 document.getElementById(&quot;json&quot;).innerHTML= json.name;   第二行是写入到到DOM中
 </code></pre><ol>
 <li><p>启用我们的npm run server 命令就可以在浏览器中看到结果了</p>
@@ -670,18 +626,17 @@ document.getElementById(&quot;json&quot;).innerHTML= json.name;   第二行是�
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save-dev babel-core babel-loader babel-preset-env babel-preset-react</span><br></pre></td></tr></table></figure>
 <p>   在项目根目录新建.babelrc文件，并把配置写到文件里</p>
-<pre><code>  {
-     &quot;presets&quot;:[&quot;react&quot;,&quot;env&quot;]
-  }
+<pre><code>{
+&quot;presets&quot;:[&quot;react&quot;,&quot;env&quot;]
+}
 
 （2）.webpack.config.js里的loader配置
-
-      {
-       test:/\.(jsx|js)$/,
-       use:{
-            loader:&apos;babel-loader&apos;,
-        },
-        exclude:/node_modules/
+{
+test:/\.(jsx|js)$/,
+use:{
+loader:&apos;babel-loader&apos;,
+},
+exclude:/node_modules/
 </code></pre><p> 9.总结引入第三方框架，Jquery和Vue，并将他们打包抽离出来，，优化  success!!!</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save jquery</span><br><span class="line">cnpm install vue --save</span><br></pre></td></tr></table></figure>
 <pre><code>const webpack = require(&apos;webpack&apos;);
@@ -724,7 +679,7 @@ document.getElementById(&quot;json&quot;).innerHTML= json.name;   第二行是�
     </a>
   
   
-    <a href="/2018/03/19/git-guide/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/19/git/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">Git--Nvm--Npm</div>
     </a>
@@ -763,6 +718,10 @@ document.getElementById(&quot;json&quot;).innerHTML= json.name;   第二行是�
       <ul>
         
           <li>
+            <a href="/2018/03/20/Angular/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/20/JQUERY /">jQuery的重点</a>
           </li>
         
@@ -776,10 +735,6 @@ document.getElementById(&quot;json&quot;).innerHTML= json.name;   第二行是�
         
           <li>
             <a href="/2018/03/20/PHP_01.V5.0/">第一天 服务端开发基础</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/20/PHP_05.V5.0/">第五天 PHP操作MySQL</a>
           </li>
         
       </ul>

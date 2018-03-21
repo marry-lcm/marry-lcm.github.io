@@ -5,16 +5,16 @@
   
   <title>jQuery的重点 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2.1 jQuery入口函数(全球都会)   $ === jQuery       $(function(){ });       jQuery(document).read(function(){  });   2.2 jQuery的选择器(其实就是CSS的选择器)       (1) ID选择器（js一般尽量用ID选择器，效率最高）id=&amp;quot;J_name&amp;quot;       (2)">
+  <meta name="description" content="2.1 jQuery入口函数(全球都会)   $ === jQuery 12$(function()&amp;#123; &amp;#125;);jQuery(document).read(function()&amp;#123;  &amp;#125;);  2.2 jQuery的选择器(其实就是CSS的选择器) (1) ID选择器（js一般尽量用ID选择器，效率最高）id=”J_name” (2) 类选择器 **（重点）**">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery的重点">
 <meta property="og:url" content="http://yoursite.com/2018/03/20/JQUERY /index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="2.1 jQuery入口函数(全球都会)   $ === jQuery       $(function(){ });       jQuery(document).read(function(){  });   2.2 jQuery的选择器(其实就是CSS的选择器)       (1) ID选择器（js一般尽量用ID选择器，效率最高）id=&amp;quot;J_name&amp;quot;       (2)">
-<meta property="og:updated_time" content="2018-03-20T05:19:08.141Z">
+<meta property="og:description" content="2.1 jQuery入口函数(全球都会)   $ === jQuery 12$(function()&amp;#123; &amp;#125;);jQuery(document).read(function()&amp;#123;  &amp;#125;);  2.2 jQuery的选择器(其实就是CSS的选择器) (1) ID选择器（js一般尽量用ID选择器，效率最高）id=”J_name” (2) 类选择器 **（重点）**">
+<meta property="og:updated_time" content="2018-03-20T14:25:03.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery的重点">
-<meta name="twitter:description" content="2.1 jQuery入口函数(全球都会)   $ === jQuery       $(function(){ });       jQuery(document).read(function(){  });   2.2 jQuery的选择器(其实就是CSS的选择器)       (1) ID选择器（js一般尽量用ID选择器，效率最高）id=&amp;quot;J_name&amp;quot;       (2)">
+<meta name="twitter:description" content="2.1 jQuery入口函数(全球都会)   $ === jQuery 12$(function()&amp;#123; &amp;#125;);jQuery(document).read(function()&amp;#123;  &amp;#125;);  2.2 jQuery的选择器(其实就是CSS的选择器) (1) ID选择器（js一般尽量用ID选择器，效率最高）id=”J_name” (2) 类选择器 **（重点）**">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -85,167 +85,111 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>2.1 jQuery入口函数(全球都会)   $ === jQuery
-      $(function(){ });
-      jQuery(document).read(function(){  });
+        <p>2.1 jQuery入口函数(全球都会)   $ === jQuery</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123; &#125;);</span><br><span class="line">jQuery(document).read(function()&#123;  &#125;);</span><br></pre></td></tr></table></figure>
+<p> 2.2 jQuery的选择器(其实就是CSS的选择器)</p>
+<p>(1) ID选择器（js一般尽量用ID选择器，效率最高）id=”J_name”</p>
+<pre><code>(2) 类选择器 **（重点）**
+(3) 标签选择器 **（重点）**
+(4) 层级选择器 **（重点）**
+ :contains(text)     $(&quot;:contains(&apos;W3School&apos;)&quot;)  包含指定字符串的所有元素
+ :hidden             $(&quot;p:hidden&quot;)               所有隐藏的 &lt;p&gt; 元素
+(5) 表单元素选择
+    :input      $(&quot;:input&quot;)         所有 &lt;input&gt; 元素
+    :text       $(&quot;:text&quot;)          所有 type=&quot;text&quot; 的 &lt;input&gt; 元素
+    :password   $(&quot;:password&quot;)      所有 type=&quot;password&quot; 的 &lt;input&gt; 元素
+    :radio      $(&quot;:radio&quot;)         所有 type=&quot;radio&quot; 的 &lt;input&gt; 元素
+    :checkbox   $(&quot;:checkbox&quot;)      所有 type=&quot;checkbox&quot; 的 &lt;input&gt; 元素
+    :submit     $(&quot;:submit&quot;)        所有 type=&quot;submit&quot; 的 &lt;input&gt; 元素
+    :reset      $(&quot;:reset&quot;)         所有 type=&quot;reset&quot; 的 &lt;input&gt; 元素
+    :button     $(&quot;:button&quot;)        所有 type=&quot;button&quot; 的 &lt;input&gt; 元素
+    :image      $(&quot;:image&quot;)         所有 type=&quot;image&quot; 的 &lt;input&gt; 元素
+    :file       $(&quot;:file&quot;)          所有 type=&quot;file&quot; 的 &lt;input&gt; 元素
+    :selected   $(&quot;:selected&quot;)  所有被选取的 input 元素
+    :checked    $(&quot;:checked&quot;)   所有被选中的 input 元素
 
- 2.2 jQuery的选择器(其实就是CSS的选择器)
-      (1) ID选择器（js一般尽量用ID选择器，效率最高）id=&quot;J_name&quot;
-      (2) 类选择器 **（重点）**
-      (3) 标签选择器 **（重点）**
-      (4) 层级选择器 **（重点）**
-       :contains(text)     $(&quot;:contains(&apos;W3School&apos;)&quot;)  包含指定字符串的所有元素
-       :hidden             $(&quot;p:hidden&quot;)               所有隐藏的 &lt;p&gt; 元素
-      (5) 表单元素选择
-          :input      $(&quot;:input&quot;)         所有 &lt;input&gt; 元素
-          :text       $(&quot;:text&quot;)          所有 type=&quot;text&quot; 的 &lt;input&gt; 元素
-          :password   $(&quot;:password&quot;)      所有 type=&quot;password&quot; 的 &lt;input&gt; 元素
-          :radio      $(&quot;:radio&quot;)         所有 type=&quot;radio&quot; 的 &lt;input&gt; 元素
-          :checkbox   $(&quot;:checkbox&quot;)      所有 type=&quot;checkbox&quot; 的 &lt;input&gt; 元素
-          :submit     $(&quot;:submit&quot;)        所有 type=&quot;submit&quot; 的 &lt;input&gt; 元素
-          :reset      $(&quot;:reset&quot;)         所有 type=&quot;reset&quot; 的 &lt;input&gt; 元素
-          :button     $(&quot;:button&quot;)        所有 type=&quot;button&quot; 的 &lt;input&gt; 元素
-          :image      $(&quot;:image&quot;)         所有 type=&quot;image&quot; 的 &lt;input&gt; 元素
-          :file       $(&quot;:file&quot;)          所有 type=&quot;file&quot; 的 &lt;input&gt; 元素
-          :selected   $(&quot;:selected&quot;)  所有被选取的 input 元素
-          :checked    $(&quot;:checked&quot;)   所有被选中的 input 元素
-
-       (1) 获取父级元素
-           $(selector).parent();     //获取直接父级
-           $(selector).parents(&apos;p&apos;); //获取所有父级元素直到html 
-       (2) 获取子代和后代的元素
-           $(selector).children();   //获取直接子元素
-           $(selector).find(&quot;span&quot;); //获取所有的后代元素   * find方法 可能用的多。
-       (3) 获取同级的元素
-           $(selector).siblings()    //所有的兄弟节点
-           $(selector).next()        //下一个兄弟节点
-           $(selector).nextAll()     //后面的所有兄弟节点
-           $(selector).prev()        //上面一个的兄弟节点
-           $(selector).prevAll()     //前面的所有的兄弟节点
-       (4) 过滤方法
-           $(&quot;div p&quot;).last();        //取最后一个元素
-           $(&quot;div p&quot;).first();       //取第一个元素
-           $(&quot;p&quot;).eq(1);             //去第n个元素
-           $(&quot;p&quot;).filter(&quot;.intro&quot;);  //过滤，选择所有p标签带有 .intro类
-           $(&quot;p&quot;).not(&quot;.intro&quot;);     //去除，跟上面的filetr正好相反
-
- 2.3 jQuery的Dom操作
-       (1) 获取html的内容-- 获取和设置相同方法名,通过不同参数来确定是获取还是设置值
-           $(selector).text() - 设置或返回所选元素的文本内容
-           $(selector).html() - 设置或返回所选元素的内容（包括 HTML 标记）
-           $(selector).val()  - 设置或返回表单字段的值
-           使用html来创建dom的方式效率比较高. 远大于： document.createElement();
-
- 2.4 jQuery的样式操作
-        (1) 基本样式操作
-            $(selector).css(&quot;color&quot;,&quot;red&quot;) |css({})  设置或返回匹配元素的样式属性。
-            $(selector).height()        设置或返回匹配元素的高度。
-            $(selector).width()         设置或返回匹配元素的宽度
-            $(selector).offset().left   =&gt; { left:99, top: 22}     返回第一个匹配元素相对于文档（最顶部 非可视区）的位置。left,top
-            $(selector).offsetParent()  返回最近的定位祖先元素。
-            $(selector).position()      返回第一个匹配元素相对于父元素的位置。
-            $(window).scrollLeft(值)    设置或返回匹配元素相对滚动条左侧的偏移。
-            $(window).scrollTop(值)     设置或返回匹配元素相对滚动条顶部的偏移。
-            $(window).on(&quot;scroll&quot;,function(){});  滚动事件
-        (2) 样式类操作  *尽量操作样式类，重点*
-            $(selector).addClass(&apos;class&apos;);     向匹配的元素添加指定的类名。
-            $(selector).removeClass(&apos;class&apos;);  从所有匹配的元素中删除全部或者指定的类。
-            $(selector).toggleClass(&apos;class&apos;)   从匹配的元素中添加或删除一个类。
-            $(selector).hasClass(&apos;class&apos;)      检查匹配的元素是否拥有指定的类
-        (3) 属性操作
-             $(selector).attr(&quot;id&quot;)      设置或返回匹配元素的属性和值
-             $(selector).removeAttr()    从所有匹配的元素中移除指定的属性
-        (4) 动态创建  
-             $(selector).append(&apos;&lt;div&gt;&lt;/div&gt;&apos;html字符串 / $(&quot;div&quot;) jquery对象 )  在被选元素的结尾插入内容 父子关系
-             $(&quot;&lt;div&gt;&lt;div&gt;&quot;)/$(&quot;div p&quot;).appendTo(&quot;#J_tbdata&quot;); - 追加到..  $tr.appendTo(&quot;#J_tbdata&quot;);
-             $(selector).prepend()   - 在被选元素的开头插入内容 父子关系
-             $(selector).after()     - 在被选元素之后插入内容 兄弟关系
-             $(selector).before()    - 在被选元素之前插入内容 兄弟关系
-
- 2.5 jQuery的动画
-           (1）隐藏显示： 三个方法的语法都一致，参数可以有两个，第一个是动画的速度（也可以是单词                      slow fast normal），
-               第二个是动画执行完成后的回调函数
-                $(selector).show(speed,callback);
-                $(selector).hide(1000);
-                $(selector).toggle(&quot;slow&quot;);
-           (2) 淡入淡出
-              $(selector).fadeIn(speed, callback)
-              $(selector).fadeOut(1000)
-              $(selector).fadeToggle(&apos;fast&apos;,function(){})
-              $(selector).fadeTo(0.5); //淡入到  0透明，1不透明
-            (3) 滑动
-              $(selector).slideDown(speed,callback);
-              $(selector).slideUp(speed,callback);
-              $(selector).slideToggle(speed,callback);
-            (4) 动画
-              $(selector).animate({params},speed,callback); 
-            (5) 结束动画
-              $(selector).stop();
-              $(selector).stop(stopAll,goToEnd);
-
-
- 2.6 jQuery的事件处理
-        (1) 简单事件绑定方法  
-            .click(hander)  .click() //绑定事件 或者触发 click事件
-            .blur()  //失去焦点事件，同上
-            .hover(function(){}, function(){}) //鼠标移入，移出
-            mouseover  mouseout： 当鼠标离开元素及它的子元素的时都会触发。（不用）
-            mouseenter mouseleave: 当鼠标离开自己时才会触发，子元素不触发。
-            .dbclick() 双击
-             change 改变,比如：文本框发送改变，下拉列表发生改变等...
-             focus 获得焦点
-             keyup, keydown, keypress :  键盘 键被按下。
-             mousedown, mouseover     
-         (2) 绑定事件的方式  jQuery1.7版本后，jQuery用on统一了所有的事件处理的方法
-             bind方式（不推荐，1.7以后的jQuery版本被on取代）
-             delegate方式（推荐，性能高，支持动态创建的元素）
-             one绑定一次事件的方式  
-             on绑定的方式（整合了bind、delegate  烈建议使用的方式）   
+ (1) 获取父级元素
+     $(selector).parent();     //获取直接父级
+     $(selector).parents(&apos;p&apos;); //获取所有父级元素直到html 
+ (2) 获取子代和后代的元素
+     $(selector).children();   //获取直接子元素
+     $(selector).find(&quot;span&quot;); //获取所有的后代元素   * find方法 可能用的多。
+ (3) 获取同级的元素
+     $(selector).siblings()    //所有的兄弟节点
+     $(selector).next()        //下一个兄弟节点
+     $(selector).nextAll()     //后面的所有兄弟节点
+     $(selector).prev()        //上面一个的兄弟节点
+     $(selector).prevAll()     //前面的所有的兄弟节点
+ (4) 过滤方法
+     $(&quot;div p&quot;).last();        //取最后一个元素
+     $(&quot;div p&quot;).first();       //取第一个元素
+     $(&quot;p&quot;).eq(1);             //去第n个元素
+     $(&quot;p&quot;).filter(&quot;.intro&quot;);  //过滤，选择所有p标签带有 .intro类
+     $(&quot;p&quot;).not(&quot;.intro&quot;);     //去除，跟上面的filetr正好相反
+</code></pre><p>2.3 jQuery的Dom操作<br>    获取html的内容– 获取和设置相同方法名,通过不同参数来确定是获取还是设置值<br>    $(selector).text() - 设置或返回所选元素的文本内容<br>    $(selector).html() - 设置或返回所选元素的内容（包括 HTML 标记）<br>    $(selector).val()  - 设置或返回表单字段的值<br>    使用html来创建dom的方式效率比较高. 远大于： document.createElement();</p>
+<p>2.4 jQuery的样式操作<br>       (1) 基本样式操作<br>           $(selector).css(“color”,”red”) |css({})  设置或返回匹配元素的样式属性。<br>           $(selector).height()        设置或返回匹配元素的高度。<br>           $(selector).width()         设置或返回匹配元素的宽度<br>           $(selector).offset().left   =&gt; { left:99, top: 22}     返回第一个匹配元素相对于文档（最顶部                                                                非可视区）的位置。left,top<br>           $(selector).offsetParent()  返回最近的定位祖先元素。<br>           $(selector).position()      返回第一个匹配元素相对于父元素的位置。<br>           $(window).scrollLeft(值)    设置或返回匹配元素相对滚动条左侧的偏移。<br>           $(window).scrollTop(值)     设置或返回匹配元素相对滚动条顶部的偏移。<br>           $(window).on(“scroll”,function(){});  滚动事件<br>       (2) 样式类操作  <em>尽量操作样式类，重点</em><br>           $(selector).addClass(‘class’);     向匹配的元素添加指定的类名。<br>           $(selector).removeClass(‘class’);  从所有匹配的元素中删除全部或者指定的类。<br>           $(selector).toggleClass(‘class’)   从匹配的元素中添加或删除一个类。<br>           $(selector).hasClass(‘class’)      检查匹配的元素是否拥有指定的类<br>       (3) 属性操作<br>            $(selector).attr(“id”)      设置或返回匹配元素的属性和值<br>            $(selector).removeAttr()    从所有匹配的元素中移除指定的属性<br>       (4) 动态创建<br>            $(selector).append(‘<div></div>‘html字符串 / $(“div”) jquery对象 )  在被选元素的结尾插入内容 父子关系<br>            $(“<div><div>“)/$(“div p”).appendTo(“#J_tbdata”); - 追加到..  $tr.appendTo(“#J_tbdata”);<br>            $(selector).prepend()   - 在被选元素的开头插入内容 父子关系<br>            $(selector).after()     - 在被选元素之后插入内容 兄弟关系<br>            $(selector).before()    - 在被选元素之前插入内容 兄弟关系</div></div></p>
+<p>2.5 jQuery的动画<br>          (1）隐藏显示： 三个方法的语法都一致，参数可以有两个，第一个是动画的速度（也可以是单词                      slow fast normal），<br>              第二个是动画执行完成后的回调函数<br>               $(selector).show(speed,callback);<br>               $(selector).hide(1000);<br>               $(selector).toggle(“slow”);<br>          (2) 淡入淡出<br>             $(selector).fadeIn(speed, callback)<br>             $(selector).fadeOut(1000)<br>             $(selector).fadeToggle(‘fast’,function(){})<br>             $(selector).fadeTo(0.5); //淡入到  0透明，1不透明<br>           (3) 滑动<br>             $(selector).slideDown(speed,callback);<br>             $(selector).slideUp(speed,callback);<br>             $(selector).slideToggle(speed,callback);<br>           (4) 动画<br>             $(selector).animate({params},speed,callback);<br>           (5) 结束动画<br>             $(selector).stop();<br>             $(selector).stop(stopAll,goToEnd);<br>2.6 jQuery的事件处理</p>
+<pre><code>(1) 简单事件绑定方法  
+    .click(hander)  .click() //绑定事件 或者触发 click事件
+    .blur()  //失去焦点事件，同上
+    .hover(function(){}, function(){}) //鼠标移入，移出
+    mouseover  mouseout： 当鼠标离开元素及它的子元素的时都会触发。（不用）
+    mouseenter mouseleave: 当鼠标离开自己时才会触发，子元素不触发。
+    .dbclick() 双击
+    change 改变,比如：文本框发送改变，下拉列表发生改变等...
+    focus 获得焦点
+    keyup, keydown, keypress :  键盘 键被按下。
+    mousedown, mouseover     
+    (2) 绑定事件的方式  jQuery1.7版本后，jQuery用on统一了所有的事件处理的方法
+            bind方式（不推荐，1.7以后的jQuery版本被on取代）
+            delegate方式（推荐，性能高，支持动态创建的元素）
+            one绑定一次事件的方式  
+            on绑定的方式（整合了bind、delegate  烈建议使用的方式）   
 
             $(&quot;.parentBox&quot;).delegate(&quot;p&quot;, &quot;click&quot;, function(){
-                 //为 .parentBox下面的所有的p标签绑定事件
-               });
+            //为 .parentBox下面的所有的p标签绑定事件
+            });
             $(&quot;.parentBox&quot;).on(&quot;click&quot;,&quot;p&quot;, function(){
-                //为 .parentBox下面的所有的p标签绑定事件
-              });    效率较高
+            //为 .parentBox下面的所有的p标签绑定事件
+            });    效率较高
 
             $( &quot;p&quot; ).one( &quot;click&quot;, function() {
-                  alert( $( this ).text() );
-              });
+            alert( $( this ).text() );
+            });
             $(&quot;p&quot;).on(&quot;click&quot;,function(){
-               $(this).off(&apos;click&apos;);//事件方法执行了一次后，就立即解绑事件
-             })
+            $(this).off(&apos;click&apos;);//事件方法执行了一次后，就立即解绑事件
+            })
             绑定一个方法（给自己绑定）
             $( &quot;#dataTable tbody tr&quot; ).on( &quot;click&quot;, function() {
-                console.log( $( this ).text() );
-             });
+            console.log( $( this ).text() );
+            });
             给子元素绑定事件
-             $( &quot;#dataTable tbody&quot; ).on( &quot;click&quot;, &quot;tr&quot;, function() {
-               console.log( $( this ).text() );
-              }); 
+            $( &quot;#dataTable tbody&quot; ).on( &quot;click&quot;, &quot;tr&quot;, function() {
+            console.log( $( this ).text() );
+            }); 
             绑定多个事件的方式
-             $( &quot;div.test&quot; ).on({
-                click: function() {}, 
-                mouseenter: function() {},
-                mouseleave: function() {}
-             });
-          (3) 解绑
-             undelegate解绑delegate事件
-             unbind解绑 bind方式绑定的事件
-             off解绑on方式绑定的事件
-               $(&quot;p&quot;).off(&apos;click&apos;);  解绑所有p的click事件    
-           (4) 触发事件
-               //简单事件触发: $(selector).click(); //触发 click事件
-               //trigger方法触发事件: $( &quot;#foo&quot; ).trigger( &quot;click&quot; );
-             triggerHandler触发 事件响应方法，不触发浏览器行为 --------------建议使用
-                   $( &quot;input&quot; ).triggerHandler( &quot;focus&quot; );
-           (5) event对象的简介
-               event.stopPropagation()**//阻止事件冒泡
-               event.preventDefault();**    //阻止默认行为
+            $( &quot;div.test&quot; ).on({
+            click: function() {}, 
+            mouseenter: function() {},
+            mouseleave: function() {}
+            });
+               (3) 解绑
+                  undelegate解绑delegate事件
+                  unbind解绑 bind方式绑定的事件
+                  off解绑on方式绑定的事件
+                    $(&quot;p&quot;).off(&apos;click&apos;);  解绑所有p的click事件    
+                (4) 触发事件
+                    //简单事件触发: $(selector).click(); //触发 click事件
+                    //trigger方法触发事件: $( &quot;#foo&quot; ).trigger( &quot;click&quot; );
+                  triggerHandler触发 事件响应方法，不触发浏览器行为 --------------建议使用
+                        $( &quot;input&quot; ).triggerHandler( &quot;focus&quot; );
+                (5) event对象的简介
+                    event.stopPropagation()**//阻止事件冒泡
+                    event.preventDefault();**    //阻止默认行为
 
-           (6) 全局的 $.each(array, function(index, element){})
-               普通jQuery对象的each方法
-               $(&quot;li&quot;).each(function(index, element){} )
+                (6) 全局的 $.each(array, function(index, element){})
+                    普通jQuery对象的each方法
+                    $(&quot;li&quot;).each(function(index, element){} )
 </code></pre><p> ！！！文档加载顺序:下载html页面，解析html标签，遇到link标签加载css，遇到script加载js.</p>
 <p> json ={“name”:”leo”}  键值对必须严格用双引号  而对象obj 不是很严格，可以不用””  obj={ ready:function(){} }</p>
 <p> 入口函数的方式  Jquery会在html所有标签加载完毕之后就会执行</p>
@@ -265,86 +209,81 @@
 <p>过滤选择器：</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 :eq(index)  index是从0开始的一个数字  $(&quot;li:eq(1).css()&quot;);</span><br></pre></td></tr></table></figure>
-<pre><code>2. :gt(index)   选择序号大于index的元素（不含自己）   $(&quot;li:gt(1)&quot;).css();
-
-3. :lt(index)   选择序号小于index的元素（不含自己）   $(&quot;li:lt(1)&quot;).css();
-
-4. :odd         选择所有序号为奇数行的元素            $(&quot;li:odd&quot;).css();
-
-5. :even        选择所有序号为偶数行的元素            $(&quot;li:even&quot;).css();
-
-6. :first       选择匹配第一个元素                    $(&quot;li:first&quot;).css();
-
-7. :last        选择匹配最后一个元素                  $(&quot;li:last&quot;).css();
-</code></pre><p>  属性选择器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.(&quot;标签名[attr=val]&quot;)  (&quot;a[href=&apos;www.baidu.com&apos;]&quot;)  属性值为...的元素</span><br></pre></td></tr></table></figure>
-<pre><code>2. $(&quot;a[href]&quot;)          标签a含有href属性的元素
-
-3. $(&quot;a[href!=&apos;&apos;]&quot;)      属性值不等于...的元素  包括没有href的元素
-
-4. $(&quot;a[href^=&apos;http&apos;]&quot;)  属性值以http开头的元素
-
-5. $(&quot;a[href$=&apos;cn&apos;]&quot;)    属性值以cn结尾的元素
-
-6. $(&quot;a[href*=&apos;i&apos;]&quot;)     属性值包含i的元素
-
-7. $(&quot;a[href][title]&quot;)   含有这些属性的元素 都满足
-</code></pre><p>  筛选选择器：（都是方法）</p>
-<pre><code>1. .eq(index) 这是一个方法  和:eq(index)效果一样  $(&quot;span&quot;).eq(2) 
-
-2. .first()  找到第一个元素   $(&quot;li&quot;).first()
-
-3. .last()    选择最后一个元素
-
-4. .parent()   $(&quot;p&quot;).parent(&quot;#div&quot;).css();  选择父元素
-
-5. .siblings()   除了自己的其他兄弟元素  $(&quot;#demo&quot;).siblings().css(&quot;background&quot;,&quot;red&quot;);  可以用来写导航栏
-
-6. .find()      $(&quot;div&quot;).find(&quot;#aa&quot;)    找出后代中符合条件的
-
-7. .children(&quot;ul&quot;)   找到子元素为ul的元素 
-
-8. .next()  选取下一个元素   （下一个兄弟节点）
-</code></pre><p> 事件：1. mouseover与mouseenter区别</p>
-<pre><code>mouseover(和mouseout一组)事件会触发多次，每遇到一个子元素就会被触发一次，我们不希望发生多次，一次就够了
-mouseenter（和mouseleave一组）事件只触发一次
-</code></pre><ol>
+<p>1 :eq(index)  index是从0开始的一个数字  $(“li:eq(1).css()”);</p>
+<ol>
+<li><p>:gt(index)   选择序号大于index的元素（不含自己）   $(“li:gt(1)”).css();</p>
+</li>
+<li><p>:lt(index)   选择序号小于index的元素（不含自己）   $(“li:lt(1)”).css();</p>
+</li>
+<li><p>:odd         选择所有序号为奇数行的元素            $(“li:odd”).css();</p>
+</li>
+<li><p>:even        选择所有序号为偶数行的元素            $(“li:even”).css();</p>
+</li>
+<li><p>:first       选择匹配第一个元素                    $(“li:first”).css();</p>
+</li>
+<li><p>:last        选择匹配最后一个元素                  $(“li:last”).css();</p>
+<p>属性选择器：</p>
+</li>
+</ol>
+<p>1.(“标签名[attr=val]”)  (“a[href=’<a href="http://www.baidu.com&#39;]&quot;" target="_blank" rel="noopener">www.baidu.com&#39;]&quot;</a>)  属性值为…的元素</p>
+<ol>
+<li><p>$(“a[href]”)          标签a含有href属性的元素</p>
+</li>
+<li><p>$(“a[href!=’’]”)      属性值不等于…的元素  包括没有href的元素</p>
+</li>
+<li><p>$(“a[href^=’http’]”)  属性值以http开头的元素</p>
+</li>
+<li><p>$(“a[href$=’cn’]”)    属性值以cn结尾的元素</p>
+</li>
+<li><p>$(“a[href*=’i’]”)     属性值包含i的元素</p>
+</li>
+<li><p>$(“a[href][title]”)   含有这些属性的元素 都满足</p>
+<p>筛选选择器：（都是方法）</p>
+</li>
+<li><p>.eq(index) 这是一个方法  和:eq(index)效果一样  $(“span”).eq(2) </p>
+</li>
+<li><p>.first()  找到第一个元素   $(“li”).first()</p>
+</li>
+<li><p>.last()    选择最后一个元素</p>
+</li>
+<li><p>.parent()   $(“p”).parent(“#div”).css();  选择父元素</p>
+</li>
+<li><p>.siblings()   除了自己的其他兄弟元素  $(“#demo”).siblings().css(“background”,”red”);  可以用来写导航栏</p>
+</li>
+<li><p>.find()      $(“div”).find(“#aa”)    找出后代中符合条件的</p>
+</li>
+<li><p>.children(“ul”)   找到子元素为ul的元素 </p>
+</li>
+<li><p>.next()  选取下一个元素   （下一个兄弟节点）</p>
+<p>事件：1. mouseover与mouseenter区别</p>
+</li>
+</ol>
+<p>mouseover(和mouseout一组)事件会触发多次，每遇到一个子元素就会被触发一次，我们不希望发生多次，一次就够了<br>mouseenter（和mouseleave一组）事件只触发一次</p>
+<ol>
 <li>hover事件实现鼠标移入移出两个事件，传入两个函数</li>
 </ol>
 <pre><code>$(&quot;#demo&quot;).hover(function(){},function(){});
 </code></pre><ol>
-<li>show() 和 hide() 事件——&gt; 实现显示和隐藏</li>
+<li><p>show() 和 hide() 事件——&gt; 实现显示和隐藏</p>
+</li>
+<li><p>slideToggle()  滑动开关效果，用于实现导航栏菜单效果 $(this).children(“ul”).slideToggle();  带有动画效果</p>
+</li>
 </ol>
-<ol>
-<li>slideToggle()  滑动开关效果，用于实现导航栏菜单效果 $(this).children(“ul”).slideToggle();  带有动画效果</li>
-</ol>
-<h3 id="DOM对象跟Jquery对象相互转化"><a href="#DOM对象跟Jquery对象相互转化" class="headerlink" title="DOM对象跟Jquery对象相互转化"></a>DOM对象跟Jquery对象相互转化</h3><pre><code>1. js里面的click()方法  触发click事件
-   js里面的onclick() 是绑定点击事件 
-
-2. $(&quot;button&quot;)[1].onclick=function(){ }     与下面的等价
-   $(&quot;button&quot;).get(1).onclick=function(){ } Jquery转化为dom对象
-
-3. DOM转化成Jquery对象     
-   var btn=document.getElementById(&quot;btn&quot;);
-   $(btn).click(function(){ $(&quot;div&quot;).show(); })
-   $(document)   $(this)  这些也是将DOM转化为Jquery  不加双引号
-
-4. .eq(index) 获取到的是Jquery对象   而 .get(index)获取的是DOM对象
-   $(&quot;div&quot;).get(1).css(&quot;font-size&quot;,&quot;20px&quot;);  这句话是错误的，因为 .get(index)获取的是DOM，DOM对象没有css这个方法
-</code></pre><p>  动画效果： 传入的参数可以是一个两个三个都可以</p>
+<h3 id="DOM对象跟Jquery对象相互转化"><a href="#DOM对象跟Jquery对象相互转化" class="headerlink" title="DOM对象跟Jquery对象相互转化"></a>DOM对象跟Jquery对象相互转化</h3><p>js里面的click()方法  触发click事件<br> js里面的onclick() 是绑定点击事件 </p>
+<p>$(“button”)[1].onclick=function(){ }     与下面的等价<br>$(“button”).get(1).onclick=function(){ } Jquery转化为dom对象</p>
+<p>DOM转化成Jquery对象<br>var btn=document.getElementById(“btn”);<br>$(btn).click(function(){ $(“div”).show(); })<br>$(document)   $(this)  这些也是将DOM转化为Jquery  不加双引号</p>
+<p>.eq(index) 获取到的是Jquery对象   而 .get(index)获取的是DOM对象<br>$(“div”).get(1).css(“font-size”,”20px”);  这句话是错误的，因为 .get(index)获取的是DOM，DOM对象没有css这个方法</p>
+<p>  动画效果： 传入的参数可以是一个两个三个都可以</p>
 <pre><code>1. show(2000,function(){ 动画后执行一系列的操作 })
 </code></pre><p> 前面的动画时长 2000 –是动画在2s内完成  前面可以跟时间，当然也可以跟字符串  “slow” “normal” “fast”  后面当然也可以不跟函数</p>
 <pre><code>2. hide(3000,function(){ }) 同show()
 </code></pre><ol>
 <li>滑动效果动画</li>
 </ol>
-<pre><code>上拉：slideDown(2000,&quot;linear/swing&quot;,function(){  })   linear是匀速运动的   swing是先慢后快   --  动画效果，默认是swing  也可以没有这个参数
-
-下拉：slideUp() 同上
-
-切换：slideToggle(1000,function(){ })  相当于一个开关，点击展开（显示），再点击隐藏
-</code></pre><p> 淡入淡出（透明度变化）  可以不执行函数</p>
+<p>上拉：slideDown(2000,”linear/swing”,function(){  })   linear是匀速运动的   swing是先慢后快   –  动画效果，默认是swing  也可以没有这个参数</p>
+<p>下拉：slideUp() 同上</p>
+<p>切换：slideToggle(1000,function(){ })  相当于一个开关，点击展开（显示），再点击隐藏</p>
+<p> 淡入淡出（透明度变化）  可以不执行函数</p>
 <pre><code>1. fadeIn(2000/&quot;fast&quot;,function(){ });    淡入 
 
 2. fadeOut(2000/&quot;slow&quot;,function(){ });   淡出
@@ -366,18 +305,21 @@ mouseenter（和mouseleave一组）事件只触发一次
 <p> 自定义动画： animate({ “width”:”300px”,”height”:”400px”,”opacity”:”0.7”},3000);</p>
 <p>  停止上一次效果   stop(false,true)  – 我们做动画的时候，可能在进行下一次的动画时，上一次动画还没有结束（都在进行动画），造成混乱</p>
 <p>  想让谁不动就加在那个身上 $(“div”).stop()</p>
-<pre><code>1.两个参数： 第一个参数：表示是否清空动画队列，默认值是false , 如果设置为true，后面所有的动画都马上停止  第一个参数可以不传，可以默认是false
-             第二个参数：表示是否立即执行完当前动画，默认为false  如果为true,表示立即执行完当前的动画，然后再执行后续动画
-
-2. stop(false,true);  当前动画立即执行完毕，后续队列中的动画继续执行
-   stop(true,true);   当前动画立即执行完毕，并清空后续队列中的所有动画       
-</code></pre><p> 操作样式：</p>
-<pre><code>1. $(&quot;div&quot;).addClass(&quot;nav&quot;);  给选定的元素添加样式，注意样式的名字没有 点 . 只是一个名字
-
-2. $(&quot;div&quot;).removeClass(&quot;nav&quot;);  传参数移出指定样式  如果不加参数，就给所有的样式清除  如果指定的样式不存在，将不删除样式
-
-3. $(&quot;div&quot;).ToggleClass(&quot;nav&quot;);  判断有没有样式，有就移出    没有就添加 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(this).addClass(&quot;active&quot;).siblings().removeClass(&quot;active&quot;); </span><br><span class="line"></span><br><span class="line">   var index=$(this).index(); </span><br><span class="line"></span><br><span class="line">   $(&quot;.main&quot;).eq(index).addClass(&quot;selected&quot;).siblings(&quot;.main&quot;).removeClass(&quot;selected&quot;);</span><br><span class="line"></span><br><span class="line">== $(&quot;.main:eq(&quot;+index+&quot;)&quot;).addClass(&quot;selected&quot;).siblings(&quot;.main&quot;).removeClass(&quot;selected&quot;);</span><br><span class="line"></span><br><span class="line">   $(&quot;div&quot;).empty(); 清空所有的子节点 留下自己</span><br><span class="line"></span><br><span class="line">   $(&quot;div&quot;).remove(); 自杀  自己和所有的子节点都没有了</span><br></pre></td></tr></table></figure>
+<p>1.两个参数： </p>
+<p>第一个参数：表示是否清空动画队列，默认值是false , 如果设置为true，后面所有的动画都马上停止  第一个参数可以不传，可以默认是false</p>
+<p>第二个参数：表示是否立即执行完当前动画，默认为false  如果为true,表示立即执行完当前的动画，然后再执行后续动画</p>
+<p>2.</p>
+<p>stop(false,true);  当前动画立即执行完毕，后续队列中的动画继续执行<br>stop(true,true);   当前动画立即执行完毕，并清空后续队列中的所有动画       </p>
+<p> 操作样式：</p>
+<ol>
+<li><p>$(“div”).addClass(“nav”);  给选定的元素添加样式，注意样式的名字没有 点 . 只是一个名字</p>
+</li>
+<li><p>$(“div”).removeClass(“nav”);  传参数移出指定样式  如果不加参数，就给所有的样式清除  如果指定的样式不存在，将不删除样式</p>
+</li>
+<li><p>$(“div”).ToggleClass(“nav”);  判断有没有样式，有就移出    没有就添加 </p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(this).addClass(&quot;active&quot;).siblings().removeClass(&quot;active&quot;); </span><br><span class="line"></span><br><span class="line">   var index=$(this).index(); </span><br><span class="line"></span><br><span class="line">   $(&quot;.main&quot;).eq(index).addClass(&quot;selected&quot;).siblings(&quot;.main&quot;).removeClass(&quot;selected&quot;);</span><br><span class="line"></span><br><span class="line">== $(&quot;.main:eq(&quot;+index+&quot;)&quot;).addClass(&quot;selected&quot;).siblings(&quot;.main&quot;).removeClass(&quot;selected&quot;);</span><br><span class="line"></span><br><span class="line">   $(&quot;div&quot;).empty(); 清空所有的子节点 留下自己</span><br><span class="line"></span><br><span class="line">   $(&quot;div&quot;).remove(); 自杀  自己和所有的子节点都没有了</span><br></pre></td></tr></table></figure>
 <h3 id="常用DOM操作：属性和值和内容"><a href="#常用DOM操作：属性和值和内容" class="headerlink" title="常用DOM操作：属性和值和内容"></a>常用DOM操作：属性和值和内容</h3><ol>
 <li><p>设置属性  $(this).attr(“title”,”我是title”)</p>
 </li>
@@ -390,8 +332,8 @@ mouseenter（和mouseleave一组）事件只触发一次
 <li><p>(this).val();     val()里面有参数的时候是设置值，没有参数的时候是获取值</p>
 </li>
 <li><p>设置html内容   $(this).html(“我是html内容”);  </p>
-<p>我们还可以利用这个动态创建新的元素 $(this).html(“</p><p>我是P元素</p>“);  在这个标签下面生成一个P标签，并且可以生成样式<p></p>
-<p>获取html内容   $(this).html();</p>
+<p>   我们还可以利用这个动态创建新的元素 $(this).html(“</p><p>我是P元素</p>“);  在这个标签下面生成一个P标签，并且可以生成样式<p></p>
+<p>   获取html内容   $(this).html();</p>
 <ol>
 <li><p>设置文本内容  $(“div”).text(“我是文本内容”);</p>
 </li>
@@ -429,52 +371,48 @@ mouseenter（和mouseleave一组）事件只触发一次
 </li>
 <li><p>替换节点   $(“div”).replaceWith($(“p”));  用后面的替换前面的元素</p>
 <p>Window事件  </p>
-<pre><code>$(window).scroll(function () {  }   固定导航栏（滚动时需要获取滚轮的高度时）
-
-1. $(document).scrollTop();  滚轮滑动的距离  设置值就是在（）里面写
-
-2. $(&quot;.top&quot;).height()/width();  获取和设置元素的宽高   $(&quot;.top&quot;).height(300)/width(300);
-
-   $(&quot;.top&quot;).css(&quot;height&quot;);  两者的区别：.height() 获取的是一个数字，没有单位 Number类型    .css()获取的值有单位  String类型
-
-3. 获取相对于页面坐标值   $(&quot;.nav&quot;).offset().top/left;   获取距离顶部（左边）的距离
-
-   设置坐标值，设置后会变成相对定位： $(&quot;.nav&quot;).offset({top: , left: })   也可以只设置一个值
-
-4. 获取相对于父元素的坐标位置   $(&quot;p&quot;).position().top/left;  子绝父相 
-
-   这个没办法设置，只能获取
-</code></pre></li>
+<p>$(window).scroll(function () {  }   固定导航栏（滚动时需要获取滚轮的高度时）</p>
+</li>
+<li><p>$(document).scrollTop();  滚轮滑动的距离  设置值就是在（）里面写</p>
+<ol>
+<li>$(“.top”).height()/width();  获取和设置元素的宽高   $(“.top”).height(300)/width(300);</li>
 </ol>
-<p> jQuery事件   记住 on绑定事件就行了！！！！</p>
-<pre><code>     绑定多个事件,处理相同的效果  $(&quot;button&quot;).bind(&quot;click mouseenter&quot;,function(){ });
-
-
-
-
-
-
-
-      1. 绑定单个事件  $(&quot;button&quot;).bind(&quot;click&quot;,function(){ });                              
-        绑定多个事件,处理相同的效果  $(&quot;button&quot;).bind(&quot;click mouseenter&quot;,function(){ });                  绑定多个事件,处理不同的效果  $(&quot;button&quot;).bind({       
-                                  &quot;click&quot;:function(){ },                       
-                                       &quot;mouseenter&quot;:function(){ }                                
-                                 });
-     传递数据： $(&quot;button&quot;).bind(&quot;click&quot;,{a:&quot;poaiomk&quot;,b:&quot;ako&quot;},function(e){ 
-                alert(e.data.a);    //这里面可以用传进来的数据  --&gt; e是jQuery事件对象
-                e.pageX  e.pageY    让图片可以跟随鼠标移动   }); 
-
-2. 绑定一次事件 （了解） $(&quot;button&quot;).one(&quot;click&quot;,function(){ });   只触发一次
-
-3. // 不建议 $(&quot;ul&quot;).delegate(&quot;li&quot;,&quot;click&quot;,function(){ });  delegate绑定方式，给父元素绑定  通过捕获和冒泡机制  
-
-    为了解决多个li绑定同一个事件，消耗大量时间  性能不好   
-</code></pre><p>强烈建议使用 ：</p>
+<p>$(“.top”).css(“height”);  两者的区别：.height() 获取的是一个数字，没有单位 Number类型    .css()获取的值有单位  String类型</p>
+</li>
+<li><p>获取相对于页面坐标值   $(“.nav”).offset().top/left;   获取距离顶部（左边）的距离</p>
+</li>
+</ol>
+<p>设置坐标值，设置后会变成相对定位： $(“.nav”).offset({top: , left: })   也可以只设置一个值</p>
+<ol>
+<li><p>获取相对于父元素的坐标位置   $(“p”).position().top/left;  子绝父相    这个没办法设置，只能获取</p>
+<p>jQuery事件   记住 on绑定事件就行了！！！！</p>
+</li>
+</ol>
+<p>绑定多个事件,处理相同的效果      $(“button”).bind(“click mouseenter”,function(){ });</p>
+<ol>
+<li><p>绑定单个事件  $(“button”).bind(“click”,function(){ });                              </p>
+<pre><code>绑定多个事件,处理相同的效果  $(&quot;button&quot;).bind(&quot;click mouseenter&quot;,function(){ });              绑定多个事件,处理不同的效果  $(&quot;button&quot;).bind({       
+                           &quot;click&quot;:function(){ },                       
+                                &quot;mouseenter&quot;:function(){ }                                
+                          });
+</code></pre><p>  传递数据：</p>
+<pre><code> $(&quot;button&quot;).bind(&quot;click&quot;,{a:&quot;poaiomk&quot;,b:&quot;ako&quot;},function(e){ 
+    alert(e.data.a);    //这里面可以用传进来的数据  --&gt; e是jQuery事件对象
+    e.pageX  e.pageY    让图片可以跟随鼠标移动  
+});  
+</code></pre></li>
+<li><p>绑定一次事件 （了解） $(“button”).one(“click”,function(){ });   只触发一次</p>
+</li>
+<li><p>// 不建议 $(“ul”).delegate(“li”,”click”,function(){ });  delegate绑定方式，给父元素绑定  通过捕获和冒泡机制  </p>
+</li>
+</ol>
+<p>​     为了解决多个li绑定同一个事件，消耗大量时间  性能不好   </p>
+<p>强烈建议使用 ：</p>
 <pre><code>$(&quot;ul&quot;).on(&quot;click&quot;,&quot;li&quot;,function(){alert($(this).html()); });   代替上面的所有方法
 $(&quot;div&quot;).on(&quot;click&quot;,&quot;h2:eq(1)&quot;,function(){ alert($(this).html()); })这里的this指向触发该事件的元素  
 </code></pre><p>div是父级元素           可以指定是哪一个h2 也可以不指定，就默认是所有h2元素</p>
 <pre><code>4. 解绑方式   bind()----unbind()   delegate()---undelegate()    on()----off()
-  最前面给谁绑定就给谁解绑   后面括号里面是 解绑的事件       $(&quot;div&quot;).off(&quot;click&quot;);  
+   最前面给谁绑定就给谁解绑   后面括号里面是 解绑的事件       $(&quot;div&quot;).off(&quot;click&quot;);  
 </code></pre><p> on绑定事件：五星好评</p>
 <pre><code>$(&quot;ul&quot;).on(&quot;mouseenter&quot;,&quot;li&quot;,function(){
       $(this).text(wjx_sel).preAll().text(wjx_sel).end().nextAll().text(wjx_none);
@@ -507,9 +445,8 @@ $(&quot;div&quot;).on(&quot;click&quot;,&quot;h2:eq(1)&quot;,function(){ alert($
 <ol>
 <li>背景色的渐变，动画效果，我们的 animate()没有实现的</li>
 </ol>
-<pre><code> jquery.color.js
-
-  $(function(){
+<p> jquery.color.js</p>
+<pre><code>  $(function(){
        $(&quot;.box&quot;).animate({
             backgroundColor:&quot;#000&quot;
         },2000);
@@ -546,6 +483,15 @@ jquery-ui.min.js     jquery-ui.min.css
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/03/20/Angular/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2018/03/20/DOM + BOM/" id="article-nav-older" class="article-nav-link-wrap">
@@ -587,6 +533,10 @@ jquery-ui.min.js     jquery-ui.min.css
       <ul>
         
           <li>
+            <a href="/2018/03/20/Angular/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/20/JQUERY /">jQuery的重点</a>
           </li>
         
@@ -600,10 +550,6 @@ jquery-ui.min.js     jquery-ui.min.css
         
           <li>
             <a href="/2018/03/20/PHP_01.V5.0/">第一天 服务端开发基础</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/20/PHP_05.V5.0/">第五天 PHP操作MySQL</a>
           </li>
         
       </ul>
