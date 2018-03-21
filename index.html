@@ -75,6 +75,8 @@
       
         <p>1.window.location 可以取得如下信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">https://www.baidu.com:8080/aaa/1.html?id=10#name</span><br><span class="line"></span><br><span class="line">protocol:https  协议</span><br><span class="line">host:www.baidu.com:8080   主机</span><br><span class="line">hostname:www.baidu.com    主机名</span><br><span class="line">port: 8080                端口名</span><br><span class="line">pathname:/aaa/1.html      路劲名</span><br><span class="line">search: ?id=10            </span><br><span class="line">hash: #name</span><br></pre></td></tr></table></figure>
+<p>111</p>
+
       
     </div>
     <footer class="article-footer">
@@ -357,9 +359,10 @@
 <li><p>(this).val();     val()里面有参数的时候是设置值，没有参数的时候是获取值</p>
 </li>
 <li><p>设置html内容   $(this).html(“我是html内容”);  </p>
-<p>   我们还可以利用这个动态创建新的元素 $(this).html(“</p><p>我是P元素</p>“);  在这个标签下面生成一个P标签，并且可以生成样式<p></p>
-<p>   获取html内容   $(this).html();</p>
-<ol>
+<pre><code>我们还可以利用这个动态创建新的元素 $(this).html(&quot;&lt;p&gt;我是P元素&lt;/p&gt;&quot;);  在这个标签下面生成一个P标签，并且可以生成样式
+
+获取html内容   $(this).html();
+</code></pre><ol>
 <li><p>设置文本内容  $(“div”).text(“我是文本内容”);</p>
 </li>
 <li><p>获取文本内容  $(“div”).text(); 但是只获取纯文本内容，不包含标签元素</p>
@@ -399,9 +402,8 @@
 <p>$(window).scroll(function () {  }   固定导航栏（滚动时需要获取滚轮的高度时）</p>
 </li>
 <li><p>$(document).scrollTop();  滚轮滑动的距离  设置值就是在（）里面写</p>
-<ol>
-<li>$(“.top”).height()/width();  获取和设置元素的宽高   $(“.top”).height(300)/width(300);</li>
-</ol>
+</li>
+<li><p>$(“.top”).height()/width();  获取和设置元素的宽高   $(“.top”).height(300)/width(300);</p>
 <p>$(“.top”).css(“height”);  两者的区别：.height() 获取的是一个数字，没有单位 Number类型    .css()获取的值有单位  String类型</p>
 </li>
 <li><p>获取相对于页面坐标值   $(“.nav”).offset().top/left;   获取距离顶部（左边）的距离</p>
